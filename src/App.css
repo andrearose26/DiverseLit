@@ -1,22 +1,37 @@
-.App {
+/* GENERAL */
+
+.wrapper {
+  width: 90%;
+  max-width: 1800px;
+  margin: 0 auto;
+}
+
+/* HEADER */
+
+.title {
   text-align: center;
+  color: darkorange
 }
 
-.App-logo {
-  height: 40vmin;
+.raceCategories {
+  text-align: center;
+  margin: 0 auto;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+/* BOOKS */
+
+.books ul {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  flex-wrap: wrap;
+  list-style-type: none;
 }
 
-.App-link {
-  color: #09d3ac;
+.books li {
+  margin: 8px;
+}
+
+img {
+  width: 100%;
+  max-width: 250px;
+  height: auto;
 }
