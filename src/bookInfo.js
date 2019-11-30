@@ -53,7 +53,7 @@ const bookInfo = {
             {
                 isbn: 9781770414006,
                 title: 'Moon of the Crusted Snow',
-                author: '',
+                author: 'Waubgeshig Rice',
             },
             
         ],

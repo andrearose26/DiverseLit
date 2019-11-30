@@ -1,5 +1,10 @@
 /* GENERAL */
 
+body {
+  font-size: 62.5%;
+  font-family: 'Crimson Text', serif;
+}
+
 .wrapper {
   width: 90%;
   max-width: 1800px;
@@ -10,12 +15,46 @@
 
 .title {
   text-align: center;
-  color: darkorange
+  color: darkorange;
+  font-size: 3rem;
 }
 
-.raceCategories {
+.categories {
+  /* text-align: center;
+  margin: 0 auto; */
+  display: flex;
+  justify-content: center;
+  margin-bottom: 25px;
+}
+
+/* HERO */
+
+.hero {
   text-align: center;
-  margin: 0 auto;
+  height: 73vh;
+  background: url(assets/hero.jpg);
+  background-attachment: fixed;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 50px;
+}
+
+.hero h2 {
+  text-transform: uppercase;
+  font-size: 2.3rem;
+}
+
+.hero h3 {
+  font-size: 2rem;
+}
+
+.hero .text {
+  background: white;
+  width: 500px;
+  border-radius: 25px;
 }
 
 /* BOOKS */
