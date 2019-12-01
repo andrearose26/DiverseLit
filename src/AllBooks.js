@@ -13,8 +13,8 @@ class AllBooks extends Component {
                             <li key={i}>
                                 <img src={image} alt= {title + " by " + author}className="bookCover" />
                                 <div className="bookText">
-                                    <h2>{title}</h2>
-                                    <h3>{author}</h3>
+                                    <p className= "title">{title}</p>
+                                    <p className= "author">{author}</p>
                                 </div>
                             </li>
                         )

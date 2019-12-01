@@ -1,6 +1,5 @@
 import React,  { Component } from 'react';
 import categories from './categories';
-import bookInfo from './bookInfo';
 
 class Filter extends Component {
 
@@ -13,10 +12,11 @@ class Filter extends Component {
 
     HandleFilterSelection = (e) =>{
         const selection = e.target.value;
+
         this.setState({
             category1: e.target.value
         })
-        console.log(bookInfo.race[selection]);
+
     }
 
     render(){
@@ -25,7 +25,7 @@ class Filter extends Component {
                 <select onChange={this.HandleFilterSelection}  name="raceCategories">
                     {categories.race.map((raceOfAuthor, i) => {
                         return(
-                                <option key = {i} value={raceOfAuthor.value}>{raceOfAuthor.optionName}</option>
+                                <option className = {raceOfAuthor.value} key = {i} value={raceOfAuthor.value}>{raceOfAuthor.optionName}</option>
                             )
                         })}
                 </select>

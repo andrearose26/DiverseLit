@@ -3,7 +3,7 @@ const categories = {
     race: [
         {
             optionName:'Filter by ethnicity',
-            value: ''
+            value: 'noSelect'
         },
         {
             optionName:'Asian authors',

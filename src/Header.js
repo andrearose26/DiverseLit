@@ -19,13 +19,13 @@ class Header extends Component {
                                 <span className="hover"> <a href="#">Blog</a></span>
                             </li>
                             <li>
-                                <span className="hover"> <a href="#">Browse</a></span>
+                                <span className="hover"> <a href="#categories">Browse</a></span>
                             </li>
                         </ul>
                     </div>
                 </nav>
                 <Hero />
-                <div className="categories">
+                <div className="categories" id="categories">
                     <Filter 
                         getFilteredBooksProps={this.props.getFilteredBooksProps}
                     />

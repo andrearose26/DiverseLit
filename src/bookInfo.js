@@ -2,6 +2,7 @@
 //Object that contains all book titles and ISBNs
 const bookInfo = {
     race :{
+        noSelect: [],
         black:[
             {
                 isbn: 9780385686150,

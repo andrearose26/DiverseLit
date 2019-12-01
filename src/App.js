@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 
+import categories from './categories';
 import bookInfo from './bookInfo';
 import Header from './Header';
 import AllBooks from './AllBooks';
+import Footer from './Footer';
 
 import './App.css';
 
@@ -39,7 +41,7 @@ class App extends Component {
     })
   }
 
-  //This function gathers all of the isbns, titles, and author names and places it in 
+  //This function gathers all of the isbns, titles, and author names and updates state
 
   getAllBooks = () => {
 
@@ -85,7 +87,11 @@ class App extends Component {
     //ISSUE - State is updated in component, but will not update in code. When console.log this.state.allIsbns, I get an empty array. In the meantime, I've used setTimeout
   }
 
+  //This function replaces all of the books with the user selection and updates state. 
+
   getFilteredBooks = (e, categoryChoice) => {
+
+    //The user input is taken from an event listener on the filter component, passed through the function parameter. The value of the user select is equal to the key name in the bookInfo object, so a for loop will grab the ISBNs, titles, and authors with that key name and push to a new array. That array will equal the new state. 
 
     let selectedISBNs = [];
     let newPromises = [];
@@ -125,7 +131,17 @@ class App extends Component {
             imageURLs: selectedImageURLs,
           })
         })
-    },300)
+    },100)
+  }
+
+  //THIS IS NOT WORKING
+  mobileResponsive = (x) => {
+    if(x.matches){
+      console.log('less than 405px');
+      let select = document.getElementsByClassName("noSelect");
+      select.innerText = "Ethnicity"
+
+    }
   }
 
   componentDidMount() {
@@ -140,9 +156,9 @@ class App extends Component {
       let apiPromises = [];
       let newImageURLs = [];
   
-      this.state.allIsbns.map((isbn)=>{
-        return apiPromises.push(this.getBookAPI(isbn));
-      })
+      // this.state.allIsbns.map((isbn)=>{
+      //   return apiPromises.push(this.getBookAPI(isbn));
+      // })
 
       axios.all(apiPromises)
       .then((...apiCovers)=> {
@@ -169,15 +185,18 @@ class App extends Component {
 
   render() {
 
-    //Pass as props to the AllBooks component
+    let x = window.matchMedia("(max-width: 405px)");
+    this.mobileResponsive(x); // Call listener function at run time
+    x.addListener(this.mobileResponsive);
+
     return (
-      <div>
+      <div className="app">
 
           <Header 
             getFilteredBooksProps = {this.getFilteredBooks}
           />
 
-        <main className='books'>
+        <main className='books' id ='books'>
 
           <div className="wrapper">
 
@@ -188,6 +207,8 @@ class App extends Component {
             />
 
           </div>
+
+          <Footer />
 
         </main>
 
