@@ -23,6 +23,8 @@ class App extends Component {
     };
   }
 
+  //This function makes a call to the API for each ISBN that is passed through it
+
   getBookAPI = (isbn) => { //pass through each ISBN as a parameter
     return axios({
       method: "GET",
@@ -36,6 +38,8 @@ class App extends Component {
       }
     })
   }
+
+  //This function gathers all of the isbns, titles, and author names and places it in 
 
   getAllBooks = () => {
 
@@ -64,11 +68,6 @@ class App extends Component {
         newISBNs.push(isbn);
         newTitles.push(title);
         newAuthors.push(author);
-
-        //ASK ABOUT THIS. Set state occurs after it already renders and doesn't re-render after state is altered
-        this.state.allIsbns.push(isbn);
-        this.state.allTitles.push(title);
-        this.state.allAuthors.push(author);
       }
     }
 
@@ -83,7 +82,7 @@ class App extends Component {
       console.log(this.state.allIsbns);
     })
 
-    //ISSUE - State is updated in component, but will not update in code. When console.log this.state.allIsbns, I get an empty array. 
+    //ISSUE - State is updated in component, but will not update in code. When console.log this.state.allIsbns, I get an empty array. In the meantime, I've used setTimeout
   }
 
   getFilteredBooks = (e, categoryChoice) => {
@@ -136,32 +135,36 @@ class App extends Component {
     //I'm grabbing all of the isbns and putting them into an axios call to grab the images. This will return a promise for each axios call. To ensure that they all appear at the same time, I am using the .all function. I isolate the image URLs and push it to a new array, then change the imageURLs state. 
 
     //make api call to Biblioshare Image API
-    
-    let apiPromises = [];
-    let newImageURLs = [];
+    setTimeout(() => {
 
-    this.state.allIsbns.map((isbn)=>{
-      return apiPromises.push(this.getBookAPI(isbn));
-    })
-
-    axios.all(apiPromises)
-    .then((...apiCovers)=> {
-
-      //grab each object out of the API promises
-      let returnedCovers = apiCovers.map((apiObject) => {
-        return apiCovers[0]
+      let apiPromises = [];
+      let newImageURLs = [];
+  
+      this.state.allIsbns.map((isbn)=>{
+        return apiPromises.push(this.getBookAPI(isbn));
       })
 
-      //loop over each object to grab the image URL
-      for(let i = 0; i < returnedCovers[0].length; i++){
-        //pushes each urls to an array
-        newImageURLs.push(returnedCovers[0][i].request.responseURL);
-        //changes state to the updated image urls
-        this.setState({
-          imageURLs: newImageURLs,
+      axios.all(apiPromises)
+      .then((...apiCovers)=> {
+  
+        //grab each object out of the API promises
+        let returnedCovers = apiCovers.map((apiObject) => {
+          return apiCovers[0]
         })
-      }
-    });
+  
+        //loop over each object to grab the image URL
+        for(let i = 0; i < returnedCovers[0].length; i++){
+          //pushes each urls to an array
+          newImageURLs.push(returnedCovers[0][i].request.responseURL);
+          //changes state to the updated image urls
+          this.setState({
+            imageURLs: newImageURLs,
+          })
+        }
+      });
+    }, 250)
+    
+
   }
 
   render() {

@@ -6,8 +6,7 @@ class Hero extends Component {
         return(
             <div className='hero'>
                 <div className="text">
-                    {/* <h2>Best Books of 2019</h2>
-                    <h3>Read them now!</h3> */}
+                    
                 </div>
 
             </div>

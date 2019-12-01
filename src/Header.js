@@ -7,19 +7,19 @@ class Header extends Component {
     render(){
         return(
             <header>
-                <nav className = "fixedHeader">
+                <nav className="fixedHeader">
                     <div className="wrapper"> 
                         <h1 className="title">Diverse Lit<span>.</span></h1>
 
                         <ul>
                             <li>
-                                <a href="#">About</a>
+                                <span className="hover"> <a href="#">About</a></span>
                             </li>
                             <li>
-                                <a href="#">Blog</a>
+                                <span className="hover"> <a href="#">Blog</a></span>
                             </li>
                             <li>
-                                <a href="#">Browse</a>
+                                <span className="hover"> <a href="#">Browse</a></span>
                             </li>
                         </ul>
                     </div>

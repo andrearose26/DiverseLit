@@ -25,7 +25,7 @@ class Filter extends Component {
                 <select onChange={this.HandleFilterSelection}  name="raceCategories">
                     {categories.race.map((raceOfAuthor, i) => {
                         return(
-                            <option key = {i} value={raceOfAuthor.value}>{raceOfAuthor.optionName}</option>
+                                <option key = {i} value={raceOfAuthor.value}>{raceOfAuthor.optionName}</option>
                             )
                         })}
                 </select>

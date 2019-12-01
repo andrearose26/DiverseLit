@@ -5,9 +5,11 @@ html {
 
 h1,
 h2,
-h3 {
+h3,
+p {
   margin: 0;
   font-family: 'Crimson Text', serif;
+  color: black;
 }
 
 ul {
@@ -43,9 +45,7 @@ header nav .wrapper {
 
 .title {
   text-align: center;
-  color: black;
   font-size: 3rem;
-
 }
 
 .title span {
@@ -54,9 +54,6 @@ header nav .wrapper {
 }
 
 header nav ul {
-  color: black;
-  margin: 0;
-  padding: 0;
   list-style-type: none;
   display: flex;
   text-transform: uppercase;
@@ -72,13 +69,32 @@ header nav ul {
   text-decoration: none;
   color:black;
 }
-.fixedHeader ul li:hover,
-.fixedHeader ul li:focus {
-  padding: 10px;
-  border-radius: 10px;
-  font-weight: bold;
-  background: darkorange;
+
+.fixedHeader .hover {
+  display: inline-block;
+	position: relative;
 }
+
+.fixedHeader .hover a:focus{  
+  color:orange;
+  font-weight: bold;
+}
+
+.fixedHeader .hover::after {
+  content: '';
+	display: block;
+	margin: auto;
+	height: 3px;
+	width: 0px;
+	background: transparent;
+	transition: width .5s ease, background-color .5s ease;
+}
+
+.fixedHeader .hover:hover:after {
+	width: 100%;
+	background: darkorange;
+}
+
 
 /* FILTERS */
 
@@ -93,8 +109,29 @@ header nav ul {
 select {
     border-radius: 3px;
     font-size: 1.6rem;
-    box-shadow: 0px 1rem 2rem -1.5rem
+    box-shadow: 0px 1rem 2rem -1.5rem;
+    padding: 5px;
+    font-family: 'Crimson Text', serif;
+    border: none;
+    width: 200px;
 }
+
+select:focus,
+button [type="submit"]:focus  {
+  color: darkorange;
+}
+  
+button[type="submit"]{
+    padding: 5px;
+    font-size: 1.6rem;
+    border-radius: 5px;
+    font-family: 'Crimson Text', serif;
+    text-transform: uppercase;
+    margin: 15px;
+    padding: 5px 12px;
+    box-shadow: 0px 1rem 2rem -1.5rem;
+}
+
 
 /* HERO */
 
@@ -154,7 +191,6 @@ select {
 .books h3 {
   font-family: 'Nunito Sans', sans-serif;
   font-size: 1.8rem;
-  margin:0;
 }
 
 img {

@@ -11,7 +11,7 @@ class AllBooks extends Component {
                         const author = this.props.bookAuthors[i]
                         return (
                             <li key={i}>
-                                <img src={image} alt={title} className="bookCover" />
+                                <img src={image} alt= {title + " by " + author}className="bookCover" />
                                 <div className="bookText">
                                     <h2>{title}</h2>
                                     <h3>{author}</h3>
