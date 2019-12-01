@@ -2,8 +2,8 @@
 const categories = {
     race: [
         {
-            optionName:'Select an ethnic group',
-            value: 'noSelect'
+            optionName:'Filter by ethnicity',
+            value: ''
         },
         {
             optionName:'Asian authors',

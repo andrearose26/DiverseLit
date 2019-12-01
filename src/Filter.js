@@ -1,5 +1,6 @@
 import React,  { Component } from 'react';
-import categories from './categories'
+import categories from './categories';
+import bookInfo from './bookInfo';
 
 class Filter extends Component {
 
@@ -11,11 +12,11 @@ class Filter extends Component {
     }
 
     HandleFilterSelection = (e) =>{
-        console.log(e.target.value);
+        const selection = e.target.value;
         this.setState({
             category1: e.target.value
         })
-
+        console.log(bookInfo.race[selection]);
     }
 
     render(){
@@ -28,7 +29,9 @@ class Filter extends Component {
                             )
                         })}
                 </select>
-                <button type ="submit">Filter</button>
+                <button onClick={(e) =>
+                    this.props.getFilteredBooksProps(e, this.state.category1)
+                }type ="submit">Filter</button>
             </div>
         )
     }

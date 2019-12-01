@@ -58,9 +58,59 @@ const bookInfo = {
             
         ],
         asian:[
-
+            {
+                isbn: 9780804172707,
+                title: 'A Little Life',
+                author: 'Hanya Yanagihara',
+            },
+            {
+                isbn: 9781328764522,
+                title: 'How to Write an Autobiographical Novel',
+                author: 'Alexander Chee',
+            },
+            {
+                isbn: 9780062428738,
+                title: 'Sick',
+                author: 'Porochista Khakpour',
+            },
+            {
+                isbn: 9780385693219,
+                title: 'The Farm',
+                author: 'Joanne Ramos',
+            },
+            {
+                isbn: 9781250222022,
+                title: 'Trust Exercise',
+                author: 'Susan Choi',
+            },
         ],
         latinx: [
+
+            {
+                isbn: 9780525434313,
+                title: 'Fruit of the Drunken Tree',
+                author: 'Ingrid Rojas Contreras',
+            },
+            {
+                isbn: 9780735217737,
+                title: 'The Line Becomes a River',
+                author: 'Francisco Cantú',
+            },
+            {
+                isbn: 9780525511298,
+                title: 'Sabrina & Corina',
+                author: 'Kali Fajardo-Anstine',
+            },
+            {
+                isbn: 9780062662835,
+                title: 'With the Fire On High',
+                author: 'Elizabeth Acevedo',
+            },
+            {
+                isbn: 9781944700874,
+                title: 'The Cuban Comedy',
+                author: 'Pablo Medina',
+            },
 
         ],
     }

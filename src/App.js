@@ -3,7 +3,6 @@ import axios from 'axios';
 
 import bookInfo from './bookInfo';
 import Header from './Header';
-import Hero from './Hero';
 import AllBooks from './AllBooks';
 
 import './App.css';
@@ -73,18 +72,61 @@ class App extends Component {
       }
     }
 
-    console.log(newISBNs);
-
     //sets state with updated all book info
-    this.setState({
-      allIsbns: newISBNs,
-      allTitles: newTitles,
-      allAuthors: newAuthors,
+    this.setState((prevState)=> {
+      return {
+        allIsbns: newISBNs,
+        allTitles: newTitles,
+        allAuthors: newAuthors,
+      }
     }, () =>{
       console.log(this.state.allIsbns);
     })
 
     //ISSUE - State is updated in component, but will not update in code. When console.log this.state.allIsbns, I get an empty array. 
+  }
+
+  getFilteredBooks = (e, categoryChoice) => {
+
+    let selectedISBNs = [];
+    let newPromises = [];
+    let selectedImageURLs = [];
+    let selectedTitles = [];
+    let selectedAuthors = [];
+
+    for(let i = 0; i < bookInfo.race[categoryChoice].length; i++){
+      selectedISBNs.push(bookInfo.race[categoryChoice][i].isbn);
+      selectedTitles.push(bookInfo.race[categoryChoice][i].title);
+      selectedAuthors.push(bookInfo.race[categoryChoice][i].author);
+    }
+
+    this.setState((prevState)=>{
+      return {
+        allIsbns: selectedISBNs,
+        allTitles: selectedTitles,
+        allAuthors: selectedAuthors,
+      }
+    })
+
+    setTimeout (() =>{      
+      this.state.allIsbns.map((isbn) => {
+        return newPromises.push(this.getBookAPI(isbn));
+      })
+
+      axios.all(newPromises)
+        .then((...sortedCovers) => {
+          let returnedCovers = sortedCovers.map((apiObject) =>{
+            return sortedCovers[0];
+          })
+          for(let i = 0; i < sortedCovers[0].length; i++){
+            selectedImageURLs.push(sortedCovers[0][i].request.responseURL); 
+          }
+           //changes state to the updated image urls
+          this.setState({
+            imageURLs: selectedImageURLs,
+          })
+        })
+    },300)
   }
 
   componentDidMount() {
@@ -128,15 +170,11 @@ class App extends Component {
     return (
       <div>
 
-        <div className='wrapper'>
-
-          <Header />
-
-        </div>
+          <Header 
+            getFilteredBooksProps = {this.getFilteredBooks}
+          />
 
         <main className='books'>
-
-          <Hero />
 
           <div className="wrapper">
 

@@ -1,9 +1,4 @@
 import React, {Component} from 'react';
-import Covers from './Covers';
-import Titles from './Titles';
-import Authors from './Authors';
-
-
 
 class AllBooks extends Component {
 
@@ -11,12 +6,19 @@ class AllBooks extends Component {
         return(
             <div className='books'>
                 <ul>
-                    <Covers
-                        bookImg={this.props.bookImg}
-                    />
-
-                    <Titles/>
-                    <Authors/>
+                    {this.props.bookImg.map((image, i) => {
+                        const title = this.props.bookTitles[i];
+                        const author = this.props.bookAuthors[i]
+                        return (
+                            <li key={i}>
+                                <img src={image} alt={title} className="bookCover" />
+                                <div className="bookText">
+                                    <h2>{title}</h2>
+                                    <h3>{author}</h3>
+                                </div>
+                            </li>
+                        )
+                    })}
                 </ul>
             </div>
         )
