@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
-import categories from './categories';
 import bookInfo from './bookInfo';
-import Header from './Header';
-import AllBooks from './AllBooks';
-import Footer from './Footer';
+import MainPage from './MainPage';
+import About from './About';
 
 import './App.css';
 
@@ -114,9 +113,9 @@ class App extends Component {
     })
 
     setTimeout (() =>{      
-      this.state.allIsbns.map((isbn) => {
-        return newPromises.push(this.getBookAPI(isbn));
-      })
+      // this.state.allIsbns.map((isbn) => {
+      //   return newPromises.push(this.getBookAPI(isbn));
+      // })
 
       axios.all(newPromises)
         .then((...sortedCovers) => {
@@ -134,16 +133,6 @@ class App extends Component {
     },100)
   }
 
-  //THIS IS NOT WORKING
-  mobileResponsive = (x) => {
-    if(x.matches){
-      console.log('less than 405px');
-      let select = document.getElementsByClassName("noSelect");
-      select.innerText = "Ethnicity"
-
-    }
-  }
-
   componentDidMount() {
 
     this.getAllBooks();
@@ -156,9 +145,9 @@ class App extends Component {
       let apiPromises = [];
       let newImageURLs = [];
   
-      // this.state.allIsbns.map((isbn)=>{
-      //   return apiPromises.push(this.getBookAPI(isbn));
-      // })
+      this.state.allIsbns.map((isbn)=>{
+        return apiPromises.push(this.getBookAPI(isbn));
+      })
 
       axios.all(apiPromises)
       .then((...apiCovers)=> {
@@ -185,34 +174,27 @@ class App extends Component {
 
   render() {
 
-    let x = window.matchMedia("(max-width: 405px)");
-    this.mobileResponsive(x); // Call listener function at run time
-    x.addListener(this.mobileResponsive);
-
     return (
-      <div className="app">
-
-          <Header 
-            getFilteredBooksProps = {this.getFilteredBooks}
-          />
-
-        <main className='books' id ='books'>
-
-          <div className="wrapper">
-
-            <AllBooks
-              bookImg={this.state.imageURLs}
-              bookTitles = {this.state.allTitles}
-              bookAuthors = {this.state.allAuthors}
-            />
-
-          </div>
-
-          <Footer />
-
-        </main>
-
-      </div>
+      <Router>
+        <Switch>
+          <Route
+            path="/"
+            exact
+            render={() => {
+              return (
+                <MainPage
+                  bookISBNs={this.state.allIsbns}
+                  bookImg={this.state.imageURLs}
+                  bookTitles={this.state.allTitles}
+                  bookAuthors={this.state.allAuthors}
+                  getFilteredBooksProps={this.getFilteredBooks}
+                />
+                );
+              }}
+              />
+          <Route path="/about" component={About} />
+        </Switch>
+      </Router>
     );
   }
 }

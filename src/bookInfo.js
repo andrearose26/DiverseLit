@@ -114,6 +114,13 @@ const bookInfo = {
             },
 
         ],
+    },
+    genderAndSexuality: {
+        gay: [],
+        lesbian: [],
+        trans: [],
+        nonBinary: [],
+        bisexual: []
     }
 }
 

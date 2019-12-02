@@ -10,8 +10,9 @@ class Filter extends Component {
         }
     }
 
+
+    //This function grabs the user's input when they select a option before submit. 
     HandleFilterSelection = (e) =>{
-        const selection = e.target.value;
 
         this.setState({
             category1: e.target.value
@@ -20,18 +21,28 @@ class Filter extends Component {
     }
 
     render(){
+
+        for(let i = 0; i < categories.length; i++){
+            console.log(categories[i].optionName);
+        }
+        
         return(
             <div className="filter">
-                <select onChange={this.HandleFilterSelection}  name="raceCategories">
+                
+                <select onChange = {this.HandleFilterSelection}  name="raceCategories">
+                
                     {categories.race.map((raceOfAuthor, i) => {
                         return(
                                 <option className = {raceOfAuthor.value} key = {i} value={raceOfAuthor.value}>{raceOfAuthor.optionName}</option>
                             )
                         })}
+
                 </select>
+
                 <button onClick={(e) =>
                     this.props.getFilteredBooksProps(e, this.state.category1)
                 }type ="submit">Filter</button>
+
             </div>
         )
     }
