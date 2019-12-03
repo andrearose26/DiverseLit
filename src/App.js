@@ -198,10 +198,6 @@ class App extends Component {
             render = {(data) =>{
               return (
                 <BookPage
-                  // bookISBNs={this.state.allIsbns}
-                  // bookImg={this.state.imageURLs}
-                  // bookTitles={this.state.allTitles}
-                  // bookAuthors={this.state.allAuthors}
                   data = {data}
                 />
               );

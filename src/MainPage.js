@@ -7,7 +7,7 @@ class MainPage extends Component {
     render(){
 
         return (
-          <div id= "app">
+          <div className ="mainPage">
             <Header getFilteredBooksProps={this.props.getFilteredBooksProps} />
 
             <main className="books" id="books">

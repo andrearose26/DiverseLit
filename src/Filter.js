@@ -20,10 +20,10 @@ class Filter extends Component {
     }
 
     render(){
-        console.log(this.categories);
-        // for(let i = 0; i < categories.length; i++){
-        //     console.log(categories[1].optionName);
-        // }
+        // console.log(this.categories);
+        // // for(let i = 0; i < categories.length; i++){
+        // //     console.log(categories[1].optionName);
+        // // }
         
         return(
             <div className="filter">
