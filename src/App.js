@@ -81,11 +81,7 @@ class App extends Component {
         allTitles: newTitles,
         allAuthors: newAuthors,
       }
-    }, () =>{
-      console.log(this.state.allIsbns);
     })
-
-    //ISSUE - State is updated in component, but will not update in code. When console.log this.state.allIsbns, I get an empty array. In the meantime, I've used setTimeout
   }
 
   //This function replaces all of the books with the user selection and updates state. 
@@ -175,7 +171,7 @@ class App extends Component {
   render() {
 
     return (
-      <Router>
+      <Router basename="/andreaLacson-projectFive">
         <Switch>
           <Route
             path="/"
@@ -189,18 +185,15 @@ class App extends Component {
                   bookAuthors={this.state.allAuthors}
                   getFilteredBooksProps={this.getFilteredBooks}
                 />
-                );
-              }}
+              );
+            }}
           />
           <Route path="/about" component={About} />
           <Route path="/blog" component={Blog} />
-          <Route path="/:isbn" 
-            render = {(data) =>{
-              return (
-                <BookPage
-                  data = {data}
-                />
-              );
+          <Route
+            path="/:isbn"
+            render={data => {
+              return <BookPage data={data} />;
             }}
           />
         </Switch>

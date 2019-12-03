@@ -15,19 +15,19 @@ class Blog extends Component {
             </header>
 
             <div className="wrapper blogSection">
-                <div className="blogInfo">
+              <div className="blogInfo">
+                <h1 className="blogTitle">Blog</h1>
+                <h2>
+                  The Secret Society of Women Writers in Oxford in the 1920s
+                </h2>
 
-                    <h2>
-                        The Secret Society of Women Writers in Oxford in the 1920s
-                    </h2>
-
-                    <div className="blogSpecifics">
-                        <h3>By: Mo Moulton</h3>
-                        <h4>September 30, 2019</h4>
-                    </div>
+                <div className="blogSpecifics">
+                  <h3>By: Mo Moulton</h3>
+                  <h4>September 30, 2019</h4>
                 </div>
+              </div>
 
-                <p>
+              <p>
                 It began in a quiet sort of way, over hot cocoa and toasted
                 marshmallows in a student room at Somerville College, Oxford.
                 One evening in November 1912, some new friends, all first-year
@@ -39,9 +39,9 @@ class Blog extends Component {
                 of Edwardian girlhood and become complex, creative adults with a
                 radically capacious notion of what it might mean to be both
                 human and female.
-                </p>
+              </p>
 
-                <p>
+              <p>
                 The group was named by its best-known member, Dorothy L. Sayers,
                 who would go on to be a famous detective novelist and popular
                 theologian. Let’s call ourselves the Mutual Admiration Society,
@@ -57,9 +57,9 @@ class Blog extends Component {
                 apart and came together again, over the course of decades and
                 remarkable careers that ranged from birth control advocacy to
                 genre fiction, from classrooms to the stage.
-                </p>
+              </p>
 
-                <p>
+              <p>
                 Four members of the Mutual Admiration Society (MAS) are at the
                 heart of this story. Dorothy L. Sayers was known to her friends
                 by her initials, DLS. Serious and a little weird, DLS was
@@ -69,8 +69,8 @@ class Blog extends Component {
                 starred in her mystery novels. Later, she would be equally well
                 known for the essays and plays she wrote to expound her
                 particular understanding of Christianity and personal ethics.
-                </p>
-                <p>
+              </p>
+              <p>
                 Muriel St. Clare Byrne, who arrived at Somerville two years
                 later than the others, would become DLS’s closest collaborator.
                 Like DLS, she’d loved tales of knights and chivalry and
@@ -85,7 +85,7 @@ class Blog extends Component {
                 becoming a nationally known authority and advocate on
                 child-rearing, birth control, maternal mortality, and juvenile
                 delinquency.
-                </p>
+              </p>
             </div>
 
             <Footer />

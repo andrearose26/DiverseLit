@@ -1,4 +1,13 @@
 /* GENERAL */
+
+article,aside,details,figcaption,figure,footer,header,hgroup,nav,section,summary{display:block;}audio,canvas,video{display:inline-block;}audio:not([controls]){display:none;height:0;}[hidden]{display:none;}html{font-family:sans-serif;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%;}a:focus{outline:thin dotted;}a:active,a:hover{outline:0;}h1{font-size:2em;}abbr[title]{border-bottom:1px dotted;}b,strong{font-weight:700;}dfn{font-style:italic;}mark{background:#ff0;color:#000;}code,kbd,pre,samp{font-family:monospace, serif;font-size:1em;}pre{white-space:pre-wrap;word-wrap:break-word;}q{quotes:\201C \201D \2018 \2019;}small{font-size:80%;}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline;}sup{top:-.5em;}sub{bottom:-.25em;}img{border:0;}svg:not(:root){overflow:hidden;}fieldset{border:1px solid silver;margin:0 2px;padding:.35em .625em .75em;}button,input,select,textarea{font-family:inherit;font-size:100%;margin:0;}button,input{line-height:normal;}button,html input[type=button],/* 1 */input[type=reset],input[type=submit]{-webkit-appearance:button;cursor:pointer;}button[disabled],input[disabled]{cursor:default;}input[type=checkbox],input[type=radio]{box-sizing:border-box;padding:0;}input[type=search]{-webkit-appearance:textfield;-moz-box-sizing:content-box;-webkit-box-sizing:content-box;box-sizing:content-box;}input[type=search]::-webkit-search-cancel-button,input[type=search]::-webkit-search-decoration{-webkit-appearance:none;}textarea{overflow:auto;vertical-align:top;}table{border-collapse:collapse;border-spacing:0;}body,figure{margin:0;}legend,button::-moz-focus-inner,input::-moz-focus-inner{border:0;padding:0;}
+
+.clearfix:after {visibility: hidden; display: block; font-size: 0; content: ''; clear: both; height: 0; }
+
+* { -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; }
+
+.visuallyHidden:not(:focus):not(:active) { position: absolute; width: 1px; height: 1px; margin: -1px;border: 0;padding: 0;white-space: nowrap;clip-path: inset(100%);clip: rect(00 0 0);overflow: hidden;}
+
 html {
   font-size: 62.5%;
 }
@@ -20,7 +29,6 @@ ul {
 
 body {
   font-family: 'Crimson Text', serif;
-  font-family: 'Nunito Sans', sans-serif;
 }
 
 .wrapper {
@@ -34,6 +42,10 @@ body {
 header nav {
   background: white;
   padding:20px 0;
+}
+
+header nav li:first-child {
+  padding-left: 0;
 }
 
 header nav .wrapper {
@@ -58,6 +70,7 @@ header nav ul {
   display: flex;
   text-transform: uppercase;
   font-size: 1.6rem;
+  font-family: 'Nunito Sans', sans-serif;
 }
 
 .fixedHeader ul li {
@@ -156,6 +169,7 @@ button[type="submit"]{
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  position: relative;
 }
 
 .hero h2 {
@@ -219,16 +233,20 @@ button[type="submit"]{
   min-height: 350px;
 }
 
-/* ABOUT PAGE */
+/* ABOUT PAGE & BLOG PAGE*/
 
-.aboutPage .hero {
+.aboutPage .hero,
+.blogPage .hero {
     height: 35vh;
 }
 
-.aboutPage .fixedHeader a:first-child {
+.aboutPage .fixedHeader a:first-child,
+.blogPage .fixedHeader a:nth-child(2) {
   color: orange;
   font-weight: bold;
 }
+
+/* ABOUT SECTION */
 
 .aboutSection{
   text-align: center;
@@ -239,6 +257,7 @@ button[type="submit"]{
 .aboutPage h2 {
   font-size: 2.5rem;
   margin-bottom: 1.6rem;
+  text-transform: uppercase;
 }
 
 .aboutPage p {
@@ -249,13 +268,13 @@ button[type="submit"]{
 
 /* BLOG PAGE*/
 
-.blogPage .hero {
-    height: 35vh;
-}
 
-.blogPage .fixedHeader a:nth-child(2) {
-  color: orange;
-  font-weight: bold;
+.blogPage .blogTitle {
+  font-size: 3.5rem;
+  text-transform: uppercase;
+  text-align: center;
+  border-bottom: 2px solid orange;
+  padding-bottom: 2.5rem;
 }
 
 .blogSection {
@@ -266,7 +285,6 @@ button[type="submit"]{
 .blogInfo {
   padding-bottom: 1.6rem;
   margin-bottom: 2rem;
-  border-bottom: 2px solid orange;
 }
 
 .blogSpecifics {
@@ -279,6 +297,7 @@ button[type="submit"]{
   margin-bottom: 30px;
   line-height: 4.1rem;
   text-align: center;
+  padding-top: 4rem;
 }
 
 .blogPage h3 {
@@ -380,10 +399,31 @@ button[type="submit"]{
 
 /* MEDIA QUERIES */
 
-@media(max-width: 445px) {
+@media(max-width: 725px){
+  .blogSpecifics{
+    flex-direction: column;
+  }
+
+  .blogPage h2 {
+    text-align: left;
+  }
+}
+
+@media(max-width: 470px) {
 
   .title,
   header nav ul {
     margin: 0 auto
+  }
+
+  .aboutPage p,
+  .blogPage p {
+
+    line-height: 3rem;
+  }
+
+  .hero {
+    background-image: url(assets/heroMobile.jpg);
+    /* background-size: contain; */
   }
 }

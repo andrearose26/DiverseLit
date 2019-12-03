@@ -21,10 +21,6 @@ class BookPage extends Component {
         };
     }
 
-    unescapeHTML = (escapedHTML) => {
-        return escapedHTML.replace(/&lt;/g,'<').replace(/&gt;/g,'>').replace(/&amp;/g,'&');
-    }
-
     getBookDetailsAPI = (isbn) => {
         return axios({
             method: "GET",
@@ -38,37 +34,41 @@ class BookPage extends Component {
         }).then((bookInfo) =>{
             let bookData = bookInfo.request.response.Product;
             console.log(bookData);
+
+            //Grabbing all needed data and storing in variables
             let currentTitle = bookData.Title.TitleText;
             let currentContributor =
                 bookData.Contributor.PersonName;
             let currentPublisher =
                 bookData.Publisher.PublisherName;
             let currentCover = bookData.MediaFile.MediaFileLink;
-            let currentPrice = bookData.SupplyDetail.Price.PriceAmount;
             let currentDescription = bookData.OtherText[0].Text;
             let currentPages = bookData.NumberOfPages
             
-
-            let cleanDescription = currentDescription.replace(/&lt;/g, "<").replace(/&gt;/g, ">").replace(/&amp;/g, "&");
-
+            //Replacing escaped HTML to unescaped using REGEX
+            let cleanTitle = currentTitle.replace(/&lt;/g, "<").replace(/&gt;/g, ">").replace(/&amp;/g, "&");
+            let cleanDescription = 
+            currentDescription.replace(/&lt;/g, "<").replace(/&gt;/g, ">").replace(/&amp;/g, "&");
             let cleanPublisher = currentPublisher.replace(/&lt;/g, "<").replace(/&gt;/g, ">").replace(/&amp;/g, "&");
             
+            //Parsing the cleaned HTML so that it is not a string
             let parser = new DOMParser();
             let parseDescription = parser.parseFromString(cleanDescription, "text/html");
-            let newDescription = parseDescription.documentElement.innerHTML;
-            
             let parsePublisher = parser.parseFromString(cleanPublisher,"text/html");
-            console.log(parsePublisher);
-            let newPublisher = parsePublisher.documentElement.innerText;
-            
+            let parseTitle = parser.parseFromString(cleanTitle,"text/html");
 
+            //Updating new information to a new variable
+            let newDescription = parseDescription.documentElement.innerHTML;
+            let newPublisher = parsePublisher.documentElement.innerText;
+            let newTitle = parseTitle.documentElement.innerText;
+            
+            //Setting state to clean data from API
             this.setState({
-                title: currentTitle,
+                title: newTitle,
                 contributor: currentContributor,
                 publisher: newPublisher,
                 cover: currentCover,
                 description: newDescription,
-                price: currentPrice,
                 pages: currentPages,
             });
         })
@@ -77,11 +77,13 @@ class BookPage extends Component {
 
     
     componentDidMount(){
-        
+
+        //Grabbing the current ISBN through a props passed through the App.js file
         let currentIsbn = '';
 
         currentIsbn = this.props.data.match.params.isbn;
 
+        //Once ISBN is grabbed, call the Biblioshare JSON API with ISBN as a key
         this.setState({
             isbn: currentIsbn
         }, () => this.getBookDetailsAPI(this.state.isbn))
@@ -91,36 +93,40 @@ class BookPage extends Component {
     render(){
         
         return (
-            <div className="bookPage">
-                <header>
-                <Nav />
-                </header>
-                <div className="wrapper bookSection">
-                    <div className="productInfo">
-                        <div className="text">
-                            <h1>{this.state.title}</h1>
-                            <h2>{this.state.contributor}</h2>
-                            <p>{this.state.publisher}</p>
-                            <p>${this.state.price}</p>
-                            <p>{this.state.pages} pages</p>
-                            <p>{this.state.isbn}</p>
-                        </div>
-                        <div className="image">
-                            <img src={this.state.cover} alt="" />
-                        </div>
-                    </div>
-                    <div className="productExtraInfo">
-                        <h3>Description</h3>
-                        <p
-                        className="description"
-                        dangerouslySetInnerHTML={{ __html: this.state.description }}
-                        >
-                        </p>
-                    </div>
-                </div>
+          <div className="bookPage">
+            <header>
+              <Nav />
+            </header>
 
-                <Footer/>
+            <div className="wrapper bookSection">
+
+              <div className="productInfo">
+                <div className="text">
+                  <h1>{this.state.title}</h1>
+                  <h2>{this.state.contributor}</h2>
+                  <p>{this.state.publisher}</p>
+                  <p>{this.state.pages} pages</p>
+                  <p>{this.state.isbn}</p>
+                </div>
+                <div className="image">
+                  <img src={this.state.cover} alt={this.state.title + " by " + this.state.author} />
+                </div>
+              </div>
+
+              <div className="productExtraInfo">
+                <h3>Description</h3>
+
+                {/* This is because the text from the API included it's own HTML */}
+                <p
+                  className="description"
+                  dangerouslySetInnerHTML={{ __html: this.state.description }}
+                ></p>
+              </div>
+
             </div>
+
+            <Footer />
+          </div>
         );
     }
 }

@@ -22,32 +22,6 @@ const categories = {
       value: "latinx"
     }
   ],
-  genderAndSexuality: [
-    {
-      optionName: "Gender and Sexuality",
-      value: "noSelect"
-    },
-    {
-      optionName: "Bisexual Authors",
-      value: "bisexual"
-    },
-    {
-      optionName: "Gay Authors",
-      value: "gay"
-    },
-    {
-      optionName: "Lesbian Authors",
-      value: "lesbian"
-    },
-    {
-      optionName: "Non-Binary Authors",
-      value: "nonBinary"
-    },
-    {
-      optionName: "Trans Authors",
-      value: "trans"
-    },
-  ]
 };
 
 export default categories;
