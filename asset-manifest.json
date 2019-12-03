@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/andreaLacson-projectFive/static/css/main.8cee66a9.chunk.css",
+    "main.css": "/andreaLacson-projectFive/static/css/main.3c49c577.chunk.css",
     "main.js": "/andreaLacson-projectFive/static/js/main.b06749f1.chunk.js",
     "main.js.map": "/andreaLacson-projectFive/static/js/main.b06749f1.chunk.js.map",
     "runtime-main.js": "/andreaLacson-projectFive/static/js/runtime-main.e14cd4e5.js",
@@ -8,15 +8,15 @@
     "static/js/2.d5aad0a7.chunk.js": "/andreaLacson-projectFive/static/js/2.d5aad0a7.chunk.js",
     "static/js/2.d5aad0a7.chunk.js.map": "/andreaLacson-projectFive/static/js/2.d5aad0a7.chunk.js.map",
     "index.html": "/andreaLacson-projectFive/index.html",
-    "precache-manifest.be6c0d64f385c4b8c9e1a8ceffceef0b.js": "/andreaLacson-projectFive/precache-manifest.be6c0d64f385c4b8c9e1a8ceffceef0b.js",
+    "precache-manifest.38a0a1b85edae7d910504fb3c1e46305.js": "/andreaLacson-projectFive/precache-manifest.38a0a1b85edae7d910504fb3c1e46305.js",
     "service-worker.js": "/andreaLacson-projectFive/service-worker.js",
-    "static/css/main.8cee66a9.chunk.css.map": "/andreaLacson-projectFive/static/css/main.8cee66a9.chunk.css.map",
-    "static/media/App.css": "/andreaLacson-projectFive/static/media/heroMobile.0f87ee48.jpg"
+    "static/css/main.3c49c577.chunk.css.map": "/andreaLacson-projectFive/static/css/main.3c49c577.chunk.css.map",
+    "static/media/App.css": "/andreaLacson-projectFive/static/media/heroMobile.fc5c804a.jpg"
   },
   "entrypoints": [
     "static/js/runtime-main.e14cd4e5.js",
     "static/js/2.d5aad0a7.chunk.js",
-    "static/css/main.8cee66a9.chunk.css",
+    "static/css/main.3c49c577.chunk.css",
     "static/js/main.b06749f1.chunk.js"
   ]
 }
