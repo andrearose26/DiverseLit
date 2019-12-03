@@ -5,6 +5,8 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import bookInfo from './bookInfo';
 import MainPage from './MainPage';
 import About from './About';
+import Blog from './Blog';
+import BookPage from './BookPage';
 
 import './App.css';
 
@@ -113,13 +115,13 @@ class App extends Component {
     })
 
     setTimeout (() =>{      
-      // this.state.allIsbns.map((isbn) => {
-      //   return newPromises.push(this.getBookAPI(isbn));
-      // })
+      this.state.allIsbns.map((isbn) => {
+        return newPromises.push(this.getBookAPI(isbn));
+      })
 
       axios.all(newPromises)
         .then((...sortedCovers) => {
-          let returnedCovers = sortedCovers.map((apiObject) =>{
+          sortedCovers.map((apiObject) =>{
             return sortedCovers[0];
           })
           for(let i = 0; i < sortedCovers[0].length; i++){
@@ -168,8 +170,6 @@ class App extends Component {
         }
       });
     }, 250)
-    
-
   }
 
   render() {
@@ -191,8 +191,22 @@ class App extends Component {
                 />
                 );
               }}
-              />
+          />
           <Route path="/about" component={About} />
+          <Route path="/blog" component={Blog} />
+          <Route path="/:isbn" 
+            render = {(data) =>{
+              return (
+                <BookPage
+                  // bookISBNs={this.state.allIsbns}
+                  // bookImg={this.state.imageURLs}
+                  // bookTitles={this.state.allTitles}
+                  // bookAuthors={this.state.allAuthors}
+                  data = {data}
+                />
+              );
+            }}
+          />
         </Switch>
       </Router>
     );

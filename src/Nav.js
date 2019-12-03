@@ -10,14 +10,15 @@ class Nav extends Component {
                     <h1 className="title">Diverse Lit<span>.</span></h1>
                      <ul>
                         <Link to="/about">
-                        <li>
-                            <span className="hover"> About</span>
-                        </li>
+                            <li>
+                                <span className="hover"> About</span>
+                            </li>
                         </Link>
-
-                        <li>
-                            <span className="hover">Blog</span>
-                        </li>
+                        <Link to="/blog">
+                            <li>
+                                <span className="hover">Blog</span>
+                            </li>
+                        </Link>
                         
                         <Link to="/">
                             <li>

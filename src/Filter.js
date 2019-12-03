@@ -10,7 +10,6 @@ class Filter extends Component {
         }
     }
 
-
     //This function grabs the user's input when they select a option before submit. 
     HandleFilterSelection = (e) =>{
 
@@ -21,10 +20,10 @@ class Filter extends Component {
     }
 
     render(){
-
-        for(let i = 0; i < categories.length; i++){
-            console.log(categories[i].optionName);
-        }
+        console.log(this.categories);
+        // for(let i = 0; i < categories.length; i++){
+        //     console.log(categories[1].optionName);
+        // }
         
         return(
             <div className="filter">

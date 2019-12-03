@@ -190,6 +190,10 @@ button[type="submit"]{
   min-height: 350px;
 }
 
+.books li a {
+  text-decoration: none;
+}
+
 .books .title {
   font-size: 1.9rem;
   text-transform: uppercase;
@@ -227,6 +231,28 @@ img {
   margin-bottom: 1.6rem;
 }
 
+/* BLOG PAGE*/
+
+.blogSection {
+  margin-top: 35px;
+  width: 60%;
+}
+
+.blogPage h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1.6rem;
+}
+
+.blogPage h3 {
+  text-transform: uppercase;
+  margin-bottom: 1.6rem;
+  font-size: 1.8rem;
+}
+
+.blogPage p {
+  font-size: 1.8rem;
+  margin-bottom: 1.6rem;
+}
 
 /* FOOTER */
 

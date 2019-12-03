@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom';
 class AllBooks extends Component {
 
     render(){
-
         return(
             <div className='books'>
                 <ul>
@@ -13,12 +12,20 @@ class AllBooks extends Component {
                         const author = this.props.bookAuthors[i]
                         const isbn = this.props.bookISBNs[i]
                         return (
-                            <li key={isbn}>
-                                <img src={image} alt= {title + " by " + author}className="bookCover" />
-                                <div className="bookText">
-                                    <p className= "title">{title}</p>
-                                    <p className= "author">{author}</p>
-                                </div>
+                            <li id = {isbn} key={i}>
+                                <Link to= {{ pathname: `/${isbn}`, 
+                                    state: {
+                                        bookISBN: isbn,
+                                        bookAuthor: author,
+                                        bookTitle: title,
+                                    }
+                                }}>
+                                    <img src= {image} alt= {title + " by " + author} className="bookCover" />
+                                    <div className="bookText">
+                                        <p className= "title">{title}</p>
+                                        <p className= "author">{author}</p>
+                                    </div>
+                                </Link>
                             </li>
                         )
                     })}
