@@ -1,22 +1,22 @@
 {
   "files": {
-    "main.css": "/andreaLacson-projectFive/static/css/main.2903663a.chunk.css",
-    "main.js": "/andreaLacson-projectFive/static/js/main.e5c7bd78.chunk.js",
-    "main.js.map": "/andreaLacson-projectFive/static/js/main.e5c7bd78.chunk.js.map",
-    "runtime-main.js": "/andreaLacson-projectFive/static/js/runtime-main.e14cd4e5.js",
-    "runtime-main.js.map": "/andreaLacson-projectFive/static/js/runtime-main.e14cd4e5.js.map",
-    "static/js/2.d5aad0a7.chunk.js": "/andreaLacson-projectFive/static/js/2.d5aad0a7.chunk.js",
-    "static/js/2.d5aad0a7.chunk.js.map": "/andreaLacson-projectFive/static/js/2.d5aad0a7.chunk.js.map",
-    "index.html": "/andreaLacson-projectFive/index.html",
-    "precache-manifest.01cf373ad591470a79dc00308b91d728.js": "/andreaLacson-projectFive/precache-manifest.01cf373ad591470a79dc00308b91d728.js",
-    "service-worker.js": "/andreaLacson-projectFive/service-worker.js",
-    "static/css/main.2903663a.chunk.css.map": "/andreaLacson-projectFive/static/css/main.2903663a.chunk.css.map",
-    "static/media/App.scss": "/andreaLacson-projectFive/static/media/heroimagealt.b2187189.png"
+    "main.css": "/DiverseLit/static/css/main.2e37c756.chunk.css",
+    "main.js": "/DiverseLit/static/js/main.281718c7.chunk.js",
+    "main.js.map": "/DiverseLit/static/js/main.281718c7.chunk.js.map",
+    "runtime-main.js": "/DiverseLit/static/js/runtime-main.f75577d5.js",
+    "runtime-main.js.map": "/DiverseLit/static/js/runtime-main.f75577d5.js.map",
+    "static/js/2.e3b7a890.chunk.js": "/DiverseLit/static/js/2.e3b7a890.chunk.js",
+    "static/js/2.e3b7a890.chunk.js.map": "/DiverseLit/static/js/2.e3b7a890.chunk.js.map",
+    "index.html": "/DiverseLit/index.html",
+    "precache-manifest.14a517eb7a6b038437075d1d9f42323b.js": "/DiverseLit/precache-manifest.14a517eb7a6b038437075d1d9f42323b.js",
+    "service-worker.js": "/DiverseLit/service-worker.js",
+    "static/css/main.2e37c756.chunk.css.map": "/DiverseLit/static/css/main.2e37c756.chunk.css.map",
+    "static/media/App.scss": "/DiverseLit/static/media/heroimagealt.b2187189.png"
   },
   "entrypoints": [
-    "static/js/runtime-main.e14cd4e5.js",
-    "static/js/2.d5aad0a7.chunk.js",
-    "static/css/main.2903663a.chunk.css",
-    "static/js/main.e5c7bd78.chunk.js"
+    "static/js/runtime-main.f75577d5.js",
+    "static/js/2.e3b7a890.chunk.js",
+    "static/css/main.2e37c756.chunk.css",
+    "static/js/main.281718c7.chunk.js"
   ]
 }
