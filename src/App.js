@@ -8,7 +8,7 @@ import About from './About';
 import Blog from './Blog';
 import BookPage from './BookPage';
 
-import './App.css';
+import './styles/App.scss';
 
 class App extends Component {
 
@@ -171,7 +171,7 @@ class App extends Component {
   render() {
 
     return (
-      <Router basename="/andreaLacson-projectFive">
+      <Router basename="/DiverseLit">
         <Switch>
           <Route
             path="/"
