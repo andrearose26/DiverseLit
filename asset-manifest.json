@@ -1,22 +1,22 @@
 {
   "files": {
-    "main.css": "/andreaLacson-projectFive/static/css/main.3c49c577.chunk.css",
-    "main.js": "/andreaLacson-projectFive/static/js/main.a1ebcd46.chunk.js",
-    "main.js.map": "/andreaLacson-projectFive/static/js/main.a1ebcd46.chunk.js.map",
+    "main.css": "/andreaLacson-projectFive/static/css/main.2903663a.chunk.css",
+    "main.js": "/andreaLacson-projectFive/static/js/main.e5c7bd78.chunk.js",
+    "main.js.map": "/andreaLacson-projectFive/static/js/main.e5c7bd78.chunk.js.map",
     "runtime-main.js": "/andreaLacson-projectFive/static/js/runtime-main.e14cd4e5.js",
     "runtime-main.js.map": "/andreaLacson-projectFive/static/js/runtime-main.e14cd4e5.js.map",
     "static/js/2.d5aad0a7.chunk.js": "/andreaLacson-projectFive/static/js/2.d5aad0a7.chunk.js",
     "static/js/2.d5aad0a7.chunk.js.map": "/andreaLacson-projectFive/static/js/2.d5aad0a7.chunk.js.map",
     "index.html": "/andreaLacson-projectFive/index.html",
-    "precache-manifest.9508df7e7c84415daffec85c4e8bcf18.js": "/andreaLacson-projectFive/precache-manifest.9508df7e7c84415daffec85c4e8bcf18.js",
+    "precache-manifest.01cf373ad591470a79dc00308b91d728.js": "/andreaLacson-projectFive/precache-manifest.01cf373ad591470a79dc00308b91d728.js",
     "service-worker.js": "/andreaLacson-projectFive/service-worker.js",
-    "static/css/main.3c49c577.chunk.css.map": "/andreaLacson-projectFive/static/css/main.3c49c577.chunk.css.map",
-    "static/media/App.css": "/andreaLacson-projectFive/static/media/heroMobile.fc5c804a.jpg"
+    "static/css/main.2903663a.chunk.css.map": "/andreaLacson-projectFive/static/css/main.2903663a.chunk.css.map",
+    "static/media/App.scss": "/andreaLacson-projectFive/static/media/heroimagealt.b2187189.png"
   },
   "entrypoints": [
     "static/js/runtime-main.e14cd4e5.js",
     "static/js/2.d5aad0a7.chunk.js",
-    "static/css/main.3c49c577.chunk.css",
-    "static/js/main.a1ebcd46.chunk.js"
+    "static/css/main.2903663a.chunk.css",
+    "static/js/main.e5c7bd78.chunk.js"
   ]
 }
