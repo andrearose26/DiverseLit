@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Header from "./Header";
 import AllBooks from "./AllBooks";
 import Footer from "./Footer";
+import LoadingScreen from "./LoadingScreen";
 
 class MainPage extends Component {
     render(){
@@ -12,6 +13,8 @@ class MainPage extends Component {
 
             <main className="books" id="books">
               <div className="wrapper">
+
+                {this.props.showLoadingScreenProps ? <LoadingScreen/> : null}
 
                 <AllBooks
                     bookISBNs={this.props.bookISBNs}

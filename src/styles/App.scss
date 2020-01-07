@@ -2,6 +2,8 @@
 @import 'base/variables';
 @import 'base/typography';
 
+@import 'components/loadingScreen';
+
 /* GENERAL */
 
 html {
@@ -194,6 +196,38 @@ button[type="submit"]{
   width: 100%;
   max-width: 245px;
   min-height: 350px;
+}
+
+.hover-button {
+  position: relative;
+}
+
+.hoverInfo {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  color: black;
+  visibility: hidden;
+  opacity: 1;
+  margin: 0 auto;
+  text-align: center;
+  
+  p {
+    font-size: 1.8rem;
+    font-family: $sans-serif;
+    background: rgba($color: orange, $alpha: 1);
+    color: white;
+    padding: 8px 0;
+    text-transform: uppercase;
+  }
+  /* transition effect. not necessary */
+  // transition: opacity .2s, visibility .2s;
+}
+
+.books li:hover .moreDetails {
+  visibility: visible;
+  opacity: 1;
 }
 
 .books li a {

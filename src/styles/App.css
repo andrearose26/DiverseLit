@@ -189,6 +189,10 @@ p {
   color: black;
 }
 
+.loadingScreen {
+  text-align: center;
+}
+
 /* GENERAL */
 html {
   font-size: 62.5%;
@@ -343,9 +347,9 @@ button[type="submit"] {
 /* HERO */
 .hero {
   text-align: center;
-  height: 80vh;
+  height: 63vh;
   background-color: darkorange;
-  background: url(../assets/hero.jpg);
+  background: url(../assets/heroimagealt.png);
   background-attachment: fixed;
   background-size: cover;
   display: -webkit-box;
@@ -409,6 +413,37 @@ button[type="submit"] {
   width: 100%;
   max-width: 245px;
   min-height: 350px;
+}
+
+.hover-button {
+  position: relative;
+}
+
+.hoverInfo {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  color: black;
+  visibility: hidden;
+  opacity: 1;
+  margin: 0 auto;
+  text-align: center;
+  /* transition effect. not necessary */
+}
+
+.hoverInfo p {
+  font-size: 1.8rem;
+  font-family: "Nunito Sans", sans-serif;
+  background: orange;
+  color: white;
+  padding: 8px 0;
+  text-transform: uppercase;
+}
+
+.books li:hover .moreDetails {
+  visibility: visible;
+  opacity: 1;
 }
 
 .books li a {

@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import axios from "axios";
-import Nav from './Nav'
-import Footer from './Footer'
+import Nav from './Nav';
+import Footer from './Footer';
+import LoadingScreen from './LoadingScreen';
 
 class BookPage extends Component {
 
@@ -18,10 +19,15 @@ class BookPage extends Component {
           description: '',
           price: '',
           pages:'',
+          showBookLoadingScreen: false,
+          showBookInfo: false,
         };
     }
 
     getBookDetailsAPI = (isbn) => {
+        this.setState({
+          showBookLoadingScreen: true,
+        });
         return axios({
             method: "GET",
             url: this.state.jsonAPI,
@@ -70,6 +76,8 @@ class BookPage extends Component {
                 cover: currentCover,
                 description: newDescription,
                 pages: currentPages,
+                showBookLoadingScreen: false,
+                showBookInfo: true,
             });
         })
     }
@@ -100,28 +108,40 @@ class BookPage extends Component {
 
             <div className="wrapper bookSection">
 
-              <div className="productInfo">
-                <div className="text">
-                  <h1>{this.state.title}</h1>
-                  <h2>{this.state.contributor}</h2>
-                  <p>{this.state.publisher}</p>
-                  <p>{this.state.pages} pages</p>
-                  <p>{this.state.isbn}</p>
-                </div>
-                <div className="image">
-                  <img src={this.state.cover} alt={this.state.title + " by " + this.state.author} />
-                </div>
-              </div>
+              {this.state.showBookLoadingScreen ? <LoadingScreen /> : null}
 
-              <div className="productExtraInfo">
-                <h3>Description</h3>
+              {this.state.showBookInfo ? (
 
-                {/* This is because the text from the API included it's own HTML */}
-                <p
-                  className="description"
-                  dangerouslySetInnerHTML={{ __html: this.state.description }}
-                ></p>
-              </div>
+                <React.Fragment>
+
+                  <div className="productInfo">
+                    <div className="text">
+                      <h1>{this.state.title}</h1>
+                      <h2>{this.state.contributor}</h2>
+                      <p>{this.state.publisher}</p>
+                      <p>{this.state.pages} pages</p>
+                      <p>{this.state.isbn}</p>
+                    </div>
+                    <div className="image">
+                      <img src={this.state.cover} alt={this.state.title + " by " + this.state.author} />
+                    </div>
+                  </div>
+
+                  <div className="productExtraInfo">
+                    <h3>Description</h3>
+
+                    {/* This is because the text from the API included it's own HTML */}
+                    <p
+                      className="description"
+                      dangerouslySetInnerHTML={{ __html: this.state.description }}
+                      ></p>
+                  </div>
+                  
+                </React.Fragment>
+
+
+              ) : null}
+
 
             </div>
 

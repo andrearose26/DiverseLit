@@ -23,12 +23,18 @@ class App extends Component {
       imageURLs: [],
       imageAPI:
         "https://www.biblioshare.org/BNCServices/BNCServices.asmx/Images?",
+      showLoadingScreen: false,
     };
   }
 
   //This function makes a call to the API for each ISBN that is passed through it
 
   getBookAPI = (isbn) => { //pass through each ISBN as a parameter
+
+    this.setState({
+      showLoadingScreen: true,
+    });
+
     return axios({
       method: "GET",
       url: this.state.imageAPI,
@@ -126,6 +132,7 @@ class App extends Component {
            //changes state to the updated image urls
           this.setState({
             imageURLs: selectedImageURLs,
+            showLoadingScreen: false,
           })
         })
     },100)
@@ -162,6 +169,7 @@ class App extends Component {
           //changes state to the updated image urls
           this.setState({
             imageURLs: newImageURLs,
+            showLoadingScreen: false,
           })
         }
       });
@@ -183,6 +191,7 @@ class App extends Component {
                   bookImg={this.state.imageURLs}
                   bookTitles={this.state.allTitles}
                   bookAuthors={this.state.allAuthors}
+                  showLoadingScreenProps={this.state.showLoadingScreen}
                   getFilteredBooksProps={this.getFilteredBooks}
                 />
               );

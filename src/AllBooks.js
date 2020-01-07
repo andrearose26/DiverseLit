@@ -20,7 +20,12 @@ class AllBooks extends Component {
                                         bookTitle: title,
                                     }
                                 }}>
-                                    <img src= {image} alt= {title + " by " + author} className="bookCover" />
+                                    <div className="hover-button">
+                                        <img src= {image} alt= {title + " by " + author} className="bookCover" />
+                                        <div className="hoverInfo">
+                                            <p className="moreDetails">Book Details →</p>
+                                        </div>
+                                    </div>
                                     <div className="bookText">
                                         <p className= "title">{title}</p>
                                         <p className= "author">{author}</p>

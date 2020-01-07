@@ -7,7 +7,10 @@ class Nav extends Component {
           <nav className="fixedHeader" id="nav">
             <div className="wrapper">
               <h1 className="title">
-                Diverse Lit<span>.</span>
+
+                <Link to="/">
+                  Diverse Lit<span>.</span>
+                </Link>
               </h1>
               <ul>
                 <Link to="/about">
