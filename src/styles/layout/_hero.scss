@@ -1,0 +1,35 @@
+/* HERO */
+
+.hero {
+  text-align: center;
+  height: 63vh;
+  background-color: darkorange;
+  background: url(../../assets/heroimagealt.png);
+  background-attachment: fixed;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.hero h2 {
+  text-transform: uppercase;
+  font-size: 2.3rem;
+}
+
+.hero h3 {
+  font-size: 2rem;
+}
+
+.hero .text {
+  background: white;
+  width: 500px;
+  border-radius: 25px;
+}
+
+.aboutPage .hero,
+.blogPage .hero {
+    height: 35vh;
+}

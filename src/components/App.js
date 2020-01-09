@@ -2,13 +2,19 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
-import bookInfo from './bookInfo';
+import bookInfo from '../bookInfo';
 import MainPage from './MainPage';
 import About from './About';
 import Blog from './Blog';
 import BookPage from './BookPage';
 
-import './styles/App.scss';
+import '../styles/App.scss';
+
+import { library } from "@fortawesome/fontawesome-svg-core";
+import { fab } from "@fortawesome/free-brands-svg-icons";
+import { faArrowUp } from "@fortawesome/free-solid-svg-icons";
+
+library.add(fab, faArrowUp);
 
 class App extends Component {
 

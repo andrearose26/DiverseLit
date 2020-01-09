@@ -1,0 +1,45 @@
+/* FILTERS */
+
+.categories h2 {
+  text-align: center;
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+}
+
+.filter {
+  display: flex;
+  justify-content: center;
+}
+
+.categories {
+  margin-bottom: 25px;
+  background-color: #f5f5f5;
+  padding: 75px;
+}
+
+select {
+  border-radius: 3px;
+  font-size: 1.6rem;
+  box-shadow: 0px 1rem 2rem -1.5rem;
+  padding: 5px;
+  font-family: $serif;
+  border: none;
+  height: 40px;
+  width: 200px;
+}
+
+select:focus,
+button [type="submit"]:focus  {
+  color: darkorange;
+}
+  
+button[type="submit"]{
+    padding: 5px;
+    font-size: 1.6rem;
+    border-radius: 5px;
+    font-family: $serif;
+    text-transform: uppercase;
+    margin: 0 15px;
+    padding: 5px 12px;
+    box-shadow: 0px 1rem 2rem -1.5rem;
+}

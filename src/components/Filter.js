@@ -1,5 +1,5 @@
 import React,  { Component } from 'react';
-import categories from './categories';
+import categories from '../categories';
 
 class Filter extends Component {
 

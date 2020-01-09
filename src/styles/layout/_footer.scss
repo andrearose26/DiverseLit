@@ -1,0 +1,42 @@
+/* FOOTER */
+
+.footer {
+  background-color: #fafafa;
+  margin-top: 50px;
+
+  .backToTop {
+    color: darkorange;
+    font-size: 3.2rem;
+  }
+
+}
+
+.footer .wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 25px 0;
+}
+
+.attribution {
+  display: flex;
+  flex-direction: column;
+}
+
+.footer .attribution a {
+  color: darkorange;
+}
+
+.footer a,
+.footer p {
+  padding-top: 15px;
+  font-size: 1.6rem;
+  text-decoration: none;
+  transition: 0.25s all;
+  font-family: $sans-serif;
+}
+
+.footer a:hover {
+  color: darkorange;
+}

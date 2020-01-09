@@ -1,0 +1,50 @@
+/* BLOG PAGE*/
+
+.blogPage .blogTitle {
+  font-size: 3.5rem;
+  text-transform: uppercase;
+  text-align: center;
+  border-bottom: 2px solid orange;
+  padding-bottom: 2.5rem;
+}
+
+.blogSection {
+  margin-top: 35px;
+  margin: 35px auto 0 auto;
+  width: 60%;
+}
+
+.blogInfo {
+  padding-bottom: 1.6rem;
+  margin-bottom: 2rem;
+}
+
+.blogSpecifics {
+  display: flex;
+  justify-content: space-between;
+}
+
+.blogPage h2 {
+  font-size: 3rem;
+  margin-bottom: 30px;
+  line-height: 4.1rem;
+  text-align: center;
+  padding-top: 4rem;
+}
+
+.blogPage h3 {
+  text-transform: uppercase;
+  font-size: 2.5rem;
+  margin-bottom: 1.6rem;
+}
+
+.blogPage h4 {
+  font-size: 2.1rem;
+  text-transform: uppercase;
+}
+
+.blogPage p {
+  font-size: 2rem;
+  line-height: 3.5rem;
+  margin-bottom: 1.6rem;
+}

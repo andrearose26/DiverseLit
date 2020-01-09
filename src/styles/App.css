@@ -189,28 +189,60 @@ p {
   color: black;
 }
 
+/* FILTERS */
+.categories h2 {
+  text-align: center;
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+}
+
+.filter {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.categories {
+  margin-bottom: 25px;
+  background-color: #f5f5f5;
+  padding: 75px;
+}
+
+select {
+  border-radius: 3px;
+  font-size: 1.6rem;
+  -webkit-box-shadow: 0px 1rem 2rem -1.5rem;
+          box-shadow: 0px 1rem 2rem -1.5rem;
+  padding: 5px;
+  font-family: "Crimson Text", serif;
+  border: none;
+  height: 40px;
+  width: 200px;
+}
+
+select:focus,
+button [type="submit"]:focus {
+  color: darkorange;
+}
+
+button[type="submit"] {
+  padding: 5px;
+  font-size: 1.6rem;
+  border-radius: 5px;
+  font-family: "Crimson Text", serif;
+  text-transform: uppercase;
+  margin: 0 15px;
+  padding: 5px 12px;
+  -webkit-box-shadow: 0px 1rem 2rem -1.5rem;
+          box-shadow: 0px 1rem 2rem -1.5rem;
+}
+
 .loadingScreen {
   text-align: center;
-}
-
-/* GENERAL */
-html {
-  font-size: 62.5%;
-}
-
-ul {
-  margin: 0;
-  padding: 0;
-}
-
-body {
-  font-family: "Crimson Text", serif;
-}
-
-.wrapper {
-  width: 90%;
-  max-width: 1800px;
-  margin: 0 auto;
+  height: 25vh;
 }
 
 /* HEADER */
@@ -239,7 +271,7 @@ header nav .wrapper {
 
 .title {
   text-align: center;
-  font-size: 3.5rem;
+  font-size: 3.2rem;
 }
 
 .title span {
@@ -293,55 +325,10 @@ header nav ul {
   background: darkorange;
 }
 
-/* FILTERS */
-.categories h2 {
-  text-align: center;
-  font-size: 1.8rem;
-  margin-bottom: 20px;
-}
-
-.filter {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-}
-
-.categories {
-  margin-bottom: 25px;
-  background-color: #f5f5f5;
-  padding: 75px;
-}
-
-select {
-  border-radius: 3px;
-  font-size: 1.6rem;
-  -webkit-box-shadow: 0px 1rem 2rem -1.5rem;
-          box-shadow: 0px 1rem 2rem -1.5rem;
-  padding: 5px;
-  font-family: "Crimson Text", serif;
-  border: none;
-  height: 40px;
-  width: 200px;
-}
-
-select:focus,
-button [type="submit"]:focus {
-  color: darkorange;
-}
-
-button[type="submit"] {
-  padding: 5px;
-  font-size: 1.6rem;
-  border-radius: 5px;
-  font-family: "Crimson Text", serif;
-  text-transform: uppercase;
-  margin: 0 15px;
-  padding: 5px 12px;
-  -webkit-box-shadow: 0px 1rem 2rem -1.5rem;
-          box-shadow: 0px 1rem 2rem -1.5rem;
+.aboutPage .fixedHeader ul a:first-child,
+.blogPage .fixedHeader ul a:nth-child(2) {
+  color: orange;
+  font-weight: bold;
 }
 
 /* HERO */
@@ -349,7 +336,7 @@ button[type="submit"] {
   text-align: center;
   height: 63vh;
   background-color: darkorange;
-  background: url(../assets/heroimagealt.png);
+  background: url(../../assets/heroimagealt.png);
   background-attachment: fixed;
   background-size: cover;
   display: -webkit-box;
@@ -383,8 +370,13 @@ button[type="submit"] {
   border-radius: 25px;
 }
 
+.aboutPage .hero,
+.blogPage .hero {
+  height: 35vh;
+}
+
 /* BOOKS */
-.mainPage .fixedHeader a:last-child {
+.mainPage .fixedHeader ul a:last-child {
   color: orange;
   font-weight: bold;
 }
@@ -429,7 +421,6 @@ button[type="submit"] {
   opacity: 1;
   margin: 0 auto;
   text-align: center;
-  /* transition effect. not necessary */
 }
 
 .hoverInfo p {
@@ -469,22 +460,67 @@ button[type="submit"] {
   min-height: 350px;
 }
 
-/* ABOUT PAGE & BLOG PAGE*/
-.aboutPage .hero,
-.blogPage .hero {
-  height: 35vh;
+/* FOOTER */
+.footer {
+  background-color: #fafafa;
+  margin-top: 50px;
 }
 
-.aboutPage .fixedHeader a:first-child,
-.blogPage .fixedHeader a:nth-child(2) {
-  color: orange;
-  font-weight: bold;
+.footer .backToTop {
+  color: darkorange;
+  font-size: 3.2rem;
+}
+
+.footer .wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 25px 0;
+}
+
+.attribution {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.footer .attribution a {
+  color: darkorange;
+}
+
+.footer a,
+.footer p {
+  padding-top: 15px;
+  font-size: 1.6rem;
+  text-decoration: none;
+  -webkit-transition: 0.25s all;
+  transition: 0.25s all;
+  font-family: "Nunito Sans", sans-serif;
+}
+
+.footer a:hover {
+  color: darkorange;
 }
 
 /* ABOUT SECTION */
 .aboutSection {
   text-align: center;
   margin-top: 35px;
+  margin: 35px auto 0 auto;
   width: 60%;
 }
 
@@ -511,6 +547,7 @@ button[type="submit"] {
 
 .blogSection {
   margin-top: 35px;
+  margin: 35px auto 0 auto;
   width: 60%;
 }
 
@@ -557,6 +594,7 @@ button[type="submit"] {
 .bookSection {
   width: 60%;
   margin-top: 65px;
+  margin: 65px auto 0 auto;
 }
 
 .productInfo {
@@ -590,14 +628,17 @@ button[type="submit"] {
 .bookSection h1 {
   font-size: 3rem;
   margin-top: 15px;
+  font-family: "Nunito Sans", sans-serif;
 }
 
 .bookSection h2 {
+  font-family: "Nunito Sans", sans-serif;
   font-size: 2.4rem;
   margin-bottom: 1.6rem;
 }
 
 .bookSection h3 {
+  font-family: "Nunito Sans", sans-serif;
   font-size: 2.1rem;
   text-transform: uppercase;
   margin-bottom: 1.8rem;
@@ -607,45 +648,28 @@ button[type="submit"] {
   font-size: 1.8rem;
 }
 
-/* FOOTER */
-.footer {
-  background-color: #fafafa;
-  margin-top: 50px;
+.productExtraInfo p {
+  margin-bottom: 1.6rem;
 }
 
-.footer .wrapper {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  padding: 25px 0;
+/* GENERAL */
+html {
+  font-size: 62.5%;
 }
 
-.attribution {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+ul {
+  margin: 0;
+  padding: 0;
 }
 
-.footer .attribution a {
-  color: black;
+body {
+  font-family: "Crimson Text", serif;
 }
 
-.footer a {
-  padding-top: 15px;
-  font-size: 1.6rem;
-  text-decoration: none;
-  color: darkorange;
+.wrapper {
+  width: 90%;
+  max-width: 1800px;
+  margin: 0 auto;
 }
 
 /* MEDIA QUERIES */

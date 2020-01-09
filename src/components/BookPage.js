@@ -81,8 +81,6 @@ class BookPage extends Component {
             });
         })
     }
-
-
     
     componentDidMount(){
 
@@ -106,7 +104,7 @@ class BookPage extends Component {
               <Nav />
             </header>
 
-            <div className="wrapper bookSection">
+            <div className="bookSection">
 
               {this.state.showBookLoadingScreen ? <LoadingScreen /> : null}
 

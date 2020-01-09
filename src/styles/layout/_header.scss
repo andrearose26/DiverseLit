@@ -1,0 +1,76 @@
+/* HEADER */
+
+header nav {
+  background: white;
+  padding:20px 0;
+}
+
+header nav li:first-child {
+  padding-left: 0;
+}
+
+header nav .wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.title {
+  text-align: center;
+  font-size: 3.2rem;
+}
+
+.title span {
+  color: darkorange;
+  margin-left: 3px;
+}
+
+header nav ul {
+  list-style-type: none;
+  display: flex;
+  text-transform: uppercase;
+  font-size: 1.6rem;
+  font-family: $sans-serif;
+}
+
+.fixedHeader ul li {
+  padding: 10px;
+  border: 3px solid white;
+}
+
+.fixedHeader a {
+  text-decoration: none;
+  color:black;
+}
+
+.fixedHeader .hover {
+  display: inline-block;
+	position: relative;
+}
+
+.fixedHeader .hover a:focus {  
+  color:orange;
+  font-weight: bold;
+}
+
+.fixedHeader .hover::after {
+  content: '';
+	display: block;
+	margin: auto;
+	height: 3px;
+	width: 0px;
+	background: transparent;
+	transition: width .5s ease, background-color .5s ease;
+}
+
+.fixedHeader .hover:hover:after {
+	width: 100%;
+	background: darkorange;
+}
+
+.aboutPage .fixedHeader ul a:first-child,
+.blogPage .fixedHeader ul a:nth-child(2) {
+  color: orange;
+  font-weight: bold;
+}
