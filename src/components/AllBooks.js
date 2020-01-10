@@ -11,7 +11,7 @@ const AllBooks =  props  => (
                 return (
                     <li id={isbn} key={i}>
                         <Link to={{
-                            pathname: `/${isbn}`,
+                            pathname: `book/${isbn}`,
                             state: {
                                 bookISBN: isbn,
                                 bookAuthor: author,

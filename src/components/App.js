@@ -7,6 +7,7 @@ import MainPage from './MainPage';
 import About from './About';
 import Blog from './Blog';
 import BookPage from './BookPage';
+import NotFound from './NotFound';
 
 import '../styles/App.scss';
 
@@ -96,6 +97,38 @@ class App extends Component {
     })
   }
 
+  showAllBooks = () => {
+    //This will make api call to Biblioshare Image API and update all info in state
+    setTimeout(() => {
+
+      let apiPromises = [];
+      let newImageURLs = [];
+
+      this.state.allIsbns.map((isbn) => {
+        return apiPromises.push(this.getBookAPI(isbn));
+      })
+
+      axios.all(apiPromises)
+        .then((...apiCovers) => {
+
+          //grab each object out of the API promises
+          let returnedCovers = apiCovers.map((apiObject) => {
+            return apiCovers[0]
+          })
+
+          //loop over each object to grab the image URL
+          for (let i = 0; i < returnedCovers[0].length; i++) {
+            //pushes each urls to an array
+            newImageURLs.push(returnedCovers[0][i].request.responseURL);
+            //changes state to the updated image urls
+            this.setState({
+              imageURLs: newImageURLs,
+              showLoadingScreen: false,
+            })
+          }
+        });
+    }, 250)
+  }
   //This function replaces all of the books with the user selection and updates state. 
 
   getFilteredBooks = (e, categoryChoice) => {
@@ -108,78 +141,57 @@ class App extends Component {
     let selectedTitles = [];
     let selectedAuthors = [];
 
-    for(let i = 0; i < bookInfo.race[categoryChoice].length; i++){
-      selectedISBNs.push(bookInfo.race[categoryChoice][i].isbn);
-      selectedTitles.push(bookInfo.race[categoryChoice][i].title);
-      selectedAuthors.push(bookInfo.race[categoryChoice][i].author);
-    }
+    if (categoryChoice === "noSelect") {
+      //if they select the default, get all of the book ISBNs, titles, authors and set to state
+      this.getAllBooks();
+      this.showAllBooks();
 
-    this.setState((prevState)=>{
-      return {
-        allIsbns: selectedISBNs,
-        allTitles: selectedTitles,
-        allAuthors: selectedAuthors,
+    } else {
+      for (let i = 0; i < bookInfo.race[categoryChoice].length; i++) {
+        selectedISBNs.push(bookInfo.race[categoryChoice][i].isbn);
+        selectedTitles.push(bookInfo.race[categoryChoice][i].title);
+        selectedAuthors.push(bookInfo.race[categoryChoice][i].author);
       }
-    })
 
-    setTimeout (() =>{      
-      this.state.allIsbns.map((isbn) => {
-        return newPromises.push(this.getBookAPI(isbn));
+      this.setState((prevState) => {
+        return {
+          allIsbns: selectedISBNs,
+          allTitles: selectedTitles,
+          allAuthors: selectedAuthors,
+        }
       })
 
-      axios.all(newPromises)
-        .then((...sortedCovers) => {
-          sortedCovers.map((apiObject) =>{
-            return sortedCovers[0];
-          })
-          for(let i = 0; i < sortedCovers[0].length; i++){
-            selectedImageURLs.push(sortedCovers[0][i].request.responseURL); 
-          }
-           //changes state to the updated image urls
-          this.setState({
-            imageURLs: selectedImageURLs,
-            showLoadingScreen: false,
-          })
+      setTimeout(() => {
+        this.state.allIsbns.map((isbn) => {
+          return newPromises.push(this.getBookAPI(isbn));
         })
-    },100)
+
+        axios.all(newPromises)
+          .then((...sortedCovers) => {
+            sortedCovers.map((apiObject) => {
+              return sortedCovers[0];
+            })
+            for (let i = 0; i < sortedCovers[0].length; i++) {
+              selectedImageURLs.push(sortedCovers[0][i].request.responseURL);
+            }
+            //changes state to the updated image urls
+            this.setState({
+              imageURLs: selectedImageURLs,
+              showLoadingScreen: false,
+            })
+          })
+      }, 100)
+    }
   }
 
   componentDidMount() {
 
-    this.getAllBooks();
-
     //I'm grabbing all of the isbns and putting them into an axios call to grab the images. This will return a promise for each axios call. To ensure that they all appear at the same time, I am using the .all function. I isolate the image URLs and push it to a new array, then change the imageURLs state. 
-
-    //make api call to Biblioshare Image API
-    setTimeout(() => {
-
-      let apiPromises = [];
-      let newImageURLs = [];
+    this.getAllBooks();
+    
+    //make api call to Biblioshare Image API and update all info in state
+    this.showAllBooks();
   
-      this.state.allIsbns.map((isbn)=>{
-        return apiPromises.push(this.getBookAPI(isbn));
-      })
-
-      axios.all(apiPromises)
-      .then((...apiCovers)=> {
-  
-        //grab each object out of the API promises
-        let returnedCovers = apiCovers.map((apiObject) => {
-          return apiCovers[0]
-        })
-  
-        //loop over each object to grab the image URL
-        for(let i = 0; i < returnedCovers[0].length; i++){
-          //pushes each urls to an array
-          newImageURLs.push(returnedCovers[0][i].request.responseURL);
-          //changes state to the updated image urls
-          this.setState({
-            imageURLs: newImageURLs,
-            showLoadingScreen: false,
-          })
-        }
-      });
-    }, 250)
   }
 
   render() {
@@ -206,11 +218,12 @@ class App extends Component {
           <Route path="/about" component={About} />
           <Route path="/blog" component={Blog} />
           <Route
-            path="/:isbn"
+            path="/book/:isbn"
             render={data => {
               return <BookPage data={data} />;
             }}
           />
+          <Route path='*' component={NotFound} />
         </Switch>
       </Router>
     );

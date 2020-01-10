@@ -17,6 +17,7 @@ class Filter extends Component {
             category1: e.target.value
         })
 
+
     }
 
     render(){
