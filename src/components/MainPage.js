@@ -9,7 +9,9 @@ class MainPage extends Component {
 
         return (
           <div className ="mainPage">
-            <Header getFilteredBooksProps={this.props.getFilteredBooksProps} />
+            <Header 
+              getFilteredBooksProps={this.props.getFilteredBooksProps} 
+            />
 
             <main className="books" id="books">
               <div className="wrapper">

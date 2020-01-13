@@ -161,7 +161,7 @@ class App extends Component {
     let selectedImageURLs = [];
     let selectedTitles = [];
     let selectedAuthors = [];
-    
+
     if (categoryChoice === "noSelect") {
       //if they select the default, get all of the book ISBNs, titles, authors and set to state
       this.getAllBooks();
@@ -213,7 +213,6 @@ class App extends Component {
 
     //make api call to Biblioshare Image API and update all info in state
     this.showAllBooks();
-  
   }
 
   render() {

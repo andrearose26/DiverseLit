@@ -12,24 +12,42 @@ class Filter extends Component {
         }
     }
 
-    //This function grabs the user's input when they select a option before submit. 
-    HandleFilterSelection = (e) =>{
-
+    HandleFilterSelection = (e) => {
         this.setState({
             select: e.target.name,
             category1: e.target.value,
         })
-
     }
 
-    FilterReset = () => {
+    // //This function grabs the user's input when they select a option before submit. 
+    // HandleFilterSelectionRace = (e) =>{
 
+    //     this.setState({
+    //         select: e.target.name,
+    //         category1: e.target.value,
+    //     })
+
+    // }
+
+    // //This function grabs the user's input when they select a option before submit. 
+    // HandleFilterSelectionGender = (e) =>{
+
+    //     this.setState({
+    //         select: e.target.name,
+    //         category2: e.target.value,
+    //     })
+
+    // }
+
+    filterReset = () => {
+        console.log('filter reset function has run');
+        //This selects each select for each category, where the options are nested in an array
         const raceValues = document.getElementById("race").options;
         const genderValues = document.getElementById("gender").options;
 
+        //This sets the select to the first option in the select
         raceValues.selectedIndex = 0;
         genderValues.selectedIndex = 0;
-
 
     }
 
@@ -48,12 +66,13 @@ class Filter extends Component {
 
                 </select>
 
+
                 <select onChange = {this.HandleFilterSelection}  name="gender" id="gender">
                 
                     {categories.gender.map((genderOfAuthor, i) => {
-
+                        
                         return(
-                                <option className = {genderOfAuthor.value} key = {i} value={genderOfAuthor.value}>{genderOfAuthor.optionName}</option>
+                            <option className = {genderOfAuthor.value} key = {i} value={genderOfAuthor.value}>{genderOfAuthor.optionName}</option>
                             )
                         })}
 
@@ -61,7 +80,7 @@ class Filter extends Component {
 
                 <button onClick={(e) => {
                     this.props.getFilteredBooksProps(e, this.state.category1, this.state.select);
-                    this.FilterReset();
+                    this.filterReset();
                 }
                 }type ="submit">Filter</button>
 

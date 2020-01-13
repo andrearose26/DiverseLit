@@ -6,7 +6,9 @@ const Nav = () => (
     <div className="wrapper">
       <h1 className="title">
 
-        <Link to="/">
+        <Link to="/" onClick={() => {
+          document.location.reload(true)
+        }}>
           Diverse Lit<span>.</span>
         </Link>
       </h1>
@@ -22,7 +24,9 @@ const Nav = () => (
           </li>
         </Link>
 
-        <Link to="/">
+        <Link to="/" onClick={()=>{
+          document.location.reload(true)
+        }}>
           <li>
             <span className="hover">Browse</span>
           </li>

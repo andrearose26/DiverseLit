@@ -12,7 +12,7 @@ class Header extends Component {
             <Nav />
             <Hero />
             <div className="categories" id="categories">
-              <h2>Filter by categories</h2>
+              <h2>Select a category</h2>
               <Filter
                 getFilteredBooksProps={this.props.getFilteredBooksProps}
               />
