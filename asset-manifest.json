@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/DiverseLit/static/css/main.03d669c1.chunk.css",
-    "main.js": "/DiverseLit/static/js/main.01577d42.chunk.js",
-    "main.js.map": "/DiverseLit/static/js/main.01577d42.chunk.js.map",
+    "main.js": "/DiverseLit/static/js/main.6f764f18.chunk.js",
+    "main.js.map": "/DiverseLit/static/js/main.6f764f18.chunk.js.map",
     "runtime-main.js": "/DiverseLit/static/js/runtime-main.f75577d5.js",
     "runtime-main.js.map": "/DiverseLit/static/js/runtime-main.f75577d5.js.map",
     "static/js/2.d1f00182.chunk.js": "/DiverseLit/static/js/2.d1f00182.chunk.js",
     "static/js/2.d1f00182.chunk.js.map": "/DiverseLit/static/js/2.d1f00182.chunk.js.map",
     "index.html": "/DiverseLit/index.html",
-    "precache-manifest.6bdade1c5bc526175de3f8b5c2dbec5d.js": "/DiverseLit/precache-manifest.6bdade1c5bc526175de3f8b5c2dbec5d.js",
+    "precache-manifest.c9e18d899b5a13573953743c96edb836.js": "/DiverseLit/precache-manifest.c9e18d899b5a13573953743c96edb836.js",
     "service-worker.js": "/DiverseLit/service-worker.js",
     "static/css/main.03d669c1.chunk.css.map": "/DiverseLit/static/css/main.03d669c1.chunk.css.map",
     "static/media/blogThumbnail1.jpg": "/DiverseLit/static/media/blogThumbnail1.4556ab06.jpg",
@@ -20,6 +20,6 @@
     "static/js/runtime-main.f75577d5.js",
     "static/js/2.d1f00182.chunk.js",
     "static/css/main.03d669c1.chunk.css",
-    "static/js/main.01577d42.chunk.js"
+    "static/js/main.6f764f18.chunk.js"
   ]
 }
