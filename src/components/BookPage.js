@@ -47,7 +47,15 @@ class BookPage extends Component {
                 bookData.Contributor.PersonName;
             let currentPublisher =
                 bookData.Publisher.PublisherName;
+
+            //replicate what is done in getAllBooks then showAllBooks in an if statement
+            //if book.MediaFile.MediaFileLink is undefined, then do an axios api call to the BookNet Image API, will likely have to do that for all data points
+
+            // let currentCover = () => {
+            //   this.props.getAllBooks(isbn);
+            // }
             let currentCover = bookData.MediaFile.MediaFileLink;
+            console.log(currentCover);
             let currentDescription = bookData.OtherText[0].Text;
             let currentPages = bookData.NumberOfPages
             

@@ -22,6 +22,24 @@ const categories = {
       value: "latinx"
     }
   ],
+  gender: [
+    {
+      optionName: "Gender",
+      value: "noSelect"
+    },
+    {
+      optionName: "Female authors",
+      value: "female"
+    },
+    {
+      optionName: "Non-binary authors",
+      value: "nonBinary"
+    },
+    {
+      optionName: "Trans authors",
+      value: "trans"
+    },
+  ],
 };
 
 export default categories;

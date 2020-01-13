@@ -59,6 +59,7 @@ class App extends Component {
 
   getAllBooks = () => {
 
+    console.log('get all books function has run');
     //I am grabbing all of the ISBNs from the bookInfo object through a for loop for all the categories, then the options within. Ex - loop through each race, then each isbn is pushed through an array in this.state.
 
     let isbn, title, author;
@@ -67,10 +68,30 @@ class App extends Component {
     let newAuthors = [];
 
     const raceCategories = Object.keys(bookInfo.race); //creates an array of each of the categories in race
+    const genderCategories = Object.keys(bookInfo.gender); //creates an array of each of the categories in race
 
     //looping through each race option
     for (let i = 0; i < raceCategories.length; i++) {
       const info = bookInfo.race[raceCategories[i]];//grabs all of the book info
+
+      //looping through each book in each race option 
+      for (let i = 0; i < info.length; i++) {
+
+        //grabs all of the needed info from each category and option
+        isbn = info[i].isbn;
+        title = info[i].title;
+        author = info[i].author;
+
+        //pushes each attribute to its relevant array
+        newISBNs.push(isbn);
+        newTitles.push(title);
+        newAuthors.push(author);
+      }
+    }
+
+    //looping through each race option
+    for (let i = 0; i < genderCategories.length; i++) {
+      const info = bookInfo.gender[genderCategories[i]];//grabs all of the book info
 
       //looping through each book in each race option 
       for (let i = 0; i < info.length; i++) {
@@ -131,7 +152,7 @@ class App extends Component {
   }
   //This function replaces all of the books with the user selection and updates state. 
 
-  getFilteredBooks = (e, categoryChoice) => {
+  getFilteredBooks = (e, categoryChoice, selectChoice) => {
 
     //The user input is taken from an event listener on the filter component, passed through the function parameter. The value of the user select is equal to the key name in the bookInfo object, so a for loop will grab the ISBNs, titles, and authors with that key name and push to a new array. That array will equal the new state. 
 
@@ -140,17 +161,18 @@ class App extends Component {
     let selectedImageURLs = [];
     let selectedTitles = [];
     let selectedAuthors = [];
-
+    
     if (categoryChoice === "noSelect") {
       //if they select the default, get all of the book ISBNs, titles, authors and set to state
       this.getAllBooks();
       this.showAllBooks();
 
     } else {
-      for (let i = 0; i < bookInfo.race[categoryChoice].length; i++) {
-        selectedISBNs.push(bookInfo.race[categoryChoice][i].isbn);
-        selectedTitles.push(bookInfo.race[categoryChoice][i].title);
-        selectedAuthors.push(bookInfo.race[categoryChoice][i].author);
+
+      for (let i = 0; i < bookInfo[selectChoice][categoryChoice].length; i++) {
+        selectedISBNs.push(bookInfo[selectChoice][categoryChoice][i].isbn);
+        selectedTitles.push(bookInfo[selectChoice][categoryChoice][i].title);
+        selectedAuthors.push(bookInfo[selectChoice][categoryChoice][i].author);
       }
 
       this.setState((prevState) => {
@@ -188,7 +210,7 @@ class App extends Component {
 
     //I'm grabbing all of the isbns and putting them into an axios call to grab the images. This will return a promise for each axios call. To ensure that they all appear at the same time, I am using the .all function. I isolate the image URLs and push it to a new array, then change the imageURLs state. 
     this.getAllBooks();
-    
+
     //make api call to Biblioshare Image API and update all info in state
     this.showAllBooks();
   
@@ -220,7 +242,11 @@ class App extends Component {
           <Route
             path="/book/:isbn"
             render={data => {
-              return <BookPage data={data} />;
+              return <BookPage 
+                        data={data}
+                        getAllBooks={this.getAllBooks}
+                        showAllBooksProps={this.showAllBooks}
+                      />;
             }}
           />
           <Route path='*' component={NotFound} />
