@@ -6,12 +6,14 @@ const bookInfo = {
         {
             isbn: 9780385686150,
             title: "Homegoing",
-            author: "Yaa Gyasi"
+            author: "Yaa Gyasi",
+            otherCategories: ["female"],
         },
         {
             isbn: 9780399587689,
             title: "The Proposal",
-            author: "Jasmine Guillory"
+            author: "Jasmine Guillory",
+            otherCategories: ["female"],
         },
         {
             isbn: 9780385690324,
@@ -21,17 +23,20 @@ const bookInfo = {
         {
             isbn: 9781501168000,
             title: "Heads of The Colored People",
-            author: "Nafissa Thompson-Spires"
+            author: "Nafissa Thompson-Spires",
+            otherCategories: ["female"],
         },
         {
             isbn: 9781443459587,
             title: "Washington Black",
-            author: "Esi Edugyan"
+            author: "Esi Edugyan",
+            otherCategories: ["female"],
         },
         {
             isbn: 9780802128997,
             title: "Freshwater",
             author: "Akwaeke Emezi",
+            otherCategories: ["female", "trans"],
         },
         {
             isbn: 9781555977856,
@@ -223,10 +228,11 @@ const bookInfo = {
         },
     ],
         trans: [
+            //in the future add to female as well
         {
             isbn: 9780802128997,
             title: "Freshwater",
-            author: "Akwaeke Emezi"
+            author: "Akwaeke Emezi",
         },
         {
             isbn: 9781551527208,

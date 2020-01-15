@@ -152,7 +152,7 @@ class App extends Component {
   }
   //This function replaces all of the books with the user selection and updates state. 
 
-  getFilteredBooks = (e, categoryChoice, selectChoice) => {
+  getFilteredBooks = (e, categoryChoice1, categoryChoice2, selectChoice1, selectChoice2) => {
 
     //The user input is taken from an event listener on the filter component, passed through the function parameter. The value of the user select is equal to the key name in the bookInfo object, so a for loop will grab the ISBNs, titles, and authors with that key name and push to a new array. That array will equal the new state. 
 
@@ -162,20 +162,22 @@ class App extends Component {
     let selectedTitles = [];
     let selectedAuthors = [];
 
-    if (categoryChoice === "noSelect") {
+    if ((categoryChoice1 === "noSelect" || categoryChoice1 === "") && (categoryChoice2 === "noSelect" || categoryChoice2 === "")) {
       //if they select the default, get all of the book ISBNs, titles, authors and set to state
       this.getAllBooks();
       this.showAllBooks();
 
-    } else {
+    } else if ((categoryChoice1 === "noSelect" || categoryChoice1 === "") && categoryChoice2 !== 'noSelect'){
 
-      for (let i = 0; i < bookInfo[selectChoice][categoryChoice].length; i++) {
-        selectedISBNs.push(bookInfo[selectChoice][categoryChoice][i].isbn);
-        selectedTitles.push(bookInfo[selectChoice][categoryChoice][i].title);
-        selectedAuthors.push(bookInfo[selectChoice][categoryChoice][i].author);
+      //Grabs ISBNs for gender category and pushes it into an array
+      for (let i = 0; i < bookInfo[selectChoice2][categoryChoice2].length; i++) {
+        selectedISBNs.push(bookInfo[selectChoice2][categoryChoice2][i].isbn);
+        selectedTitles.push(bookInfo[selectChoice2][categoryChoice2][i].title);
+        selectedAuthors.push(bookInfo[selectChoice2][categoryChoice2][i].author);
       }
 
-      this.setState((prevState) => {
+      //Sets state to the updated group of ISBNs
+      this.setState(() => {
         return {
           allIsbns: selectedISBNs,
           allTitles: selectedTitles,
@@ -183,6 +185,94 @@ class App extends Component {
         }
       })
 
+      //Once all the info for each isbn comes back from the API, update state with all ISBNS so they can be put on the page
+      setTimeout(() => {
+        this.state.allIsbns.map((isbn) => {
+          return newPromises.push(this.getBookAPI(isbn));
+        })
+
+        axios.all(newPromises)
+          .then((...sortedCovers) => {
+            sortedCovers.map((apiObject) => {
+              return sortedCovers[0];
+            })
+            for (let i = 0; i < sortedCovers[0].length; i++) {
+              selectedImageURLs.push(sortedCovers[0][i].request.responseURL);
+            }
+            //changes state to the updated image urls
+            this.setState({
+              imageURLs: selectedImageURLs,
+              showLoadingScreen: false,
+            })
+          })
+      }, 100)
+
+    } else if (categoryChoice1 !== "noSelect" && (categoryChoice2 === "noSelect" || categoryChoice2 === "")){
+      console.log('both have something selected');
+      //Grabs ISBNs for race category and pushes it into an array
+      for (let i = 0; i < bookInfo[selectChoice1][categoryChoice1].length; i++) {
+        selectedISBNs.push(bookInfo[selectChoice1][categoryChoice1][i].isbn);
+        selectedTitles.push(bookInfo[selectChoice1][categoryChoice1][i].title);
+        selectedAuthors.push(bookInfo[selectChoice1][categoryChoice1][i].author);
+      }
+
+      //Sets state to the updated group of ISBNs
+      this.setState(() => {
+        return {
+          allIsbns: selectedISBNs,
+          allTitles: selectedTitles,
+          allAuthors: selectedAuthors,
+        }
+      })
+
+      //Once all the info for each isbn comes back from the API, update state with all ISBNS so they can be put on the page
+      setTimeout(() => {
+        this.state.allIsbns.map((isbn) => {
+          return newPromises.push(this.getBookAPI(isbn));
+        })
+
+        axios.all(newPromises)
+          .then((...sortedCovers) => {
+            sortedCovers.map((apiObject) => {
+              return sortedCovers[0];
+            })
+            for (let i = 0; i < sortedCovers[0].length; i++) {
+              selectedImageURLs.push(sortedCovers[0][i].request.responseURL);
+            }
+            //changes state to the updated image urls
+            this.setState({
+              imageURLs: selectedImageURLs,
+              showLoadingScreen: false,
+            })
+          })
+      }, 100)
+
+    } else if ((categoryChoice1 !== "noSelect" || categoryChoice1 !== "") && (categoryChoice2 !== "noSelect" || categoryChoice2 !== "")) {
+
+      //if both are selected
+      //Grabs ISBNs for race category and pushes it into an array
+      for (let i = 0; i < bookInfo[selectChoice1][categoryChoice1].length; i++) {
+        selectedISBNs.push(bookInfo[selectChoice1][categoryChoice1][i].isbn);
+        selectedTitles.push(bookInfo[selectChoice1][categoryChoice1][i].title);
+        selectedAuthors.push(bookInfo[selectChoice1][categoryChoice1][i].author);
+      }
+      //Grabs ISBNs for gender category and pushes it into an array
+      for (let i = 0; i < bookInfo[selectChoice2][categoryChoice2].length; i++) {
+        selectedISBNs.push(bookInfo[selectChoice2][categoryChoice2][i].isbn);
+        selectedTitles.push(bookInfo[selectChoice2][categoryChoice2][i].title);
+        selectedAuthors.push(bookInfo[selectChoice2][categoryChoice2][i].author);
+      }
+
+      //Sets state to the updated group of ISBNs
+      this.setState(() => {
+        return {
+          allIsbns: selectedISBNs,
+          allTitles: selectedTitles,
+          allAuthors: selectedAuthors,
+        }
+      })
+
+      //Once all the info for each isbn comes back from the API, update state with all ISBNS so they can be put on the page
       setTimeout(() => {
         this.state.allIsbns.map((isbn) => {
           return newPromises.push(this.getBookAPI(isbn));

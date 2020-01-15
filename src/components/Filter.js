@@ -6,38 +6,48 @@ class Filter extends Component {
     constructor(){
         super();
         this.state = {
-            select: "",
+            select1: "",
+            select2: "",
             category1: "", 
             category2: "",
         }
     }
 
-    HandleFilterSelection = (e) => {
-        this.setState({
-            select: e.target.name,
-            category1: e.target.value,
-        })
-    }
-
-    // //This function grabs the user's input when they select a option before submit. 
-    // HandleFilterSelectionRace = (e) =>{
-
+    // HandleFilterSelection = (e) => {
+    //     console.log('select:', e.target.name);
+    //     console.log('category:', e.target.value);
     //     this.setState({
     //         select: e.target.name,
     //         category1: e.target.value,
     //     })
-
     // }
 
     // //This function grabs the user's input when they select a option before submit. 
-    // HandleFilterSelectionGender = (e) =>{
+    HandleFilterSelectionRace = (e) =>{
+        console.log('handle filter race function has run');
+        console.log('select:', e.target.name);
+        console.log('category:', e.target.value);
+        
+        this.setState({
+            select1: e.target.name,
+            category1: e.target.value,
+        })
+        
+    }
+    
+    // //This function grabs the user's input when they select a option before submit. 
+    HandleFilterSelectionGender = (e) =>{
+        
+        console.log('handle filter gender function has run');
+        console.log('select:', e.target.name);
+        console.log('category:', e.target.value);
 
-    //     this.setState({
-    //         select: e.target.name,
-    //         category2: e.target.value,
-    //     })
+        this.setState({
+            select2: e.target.name,
+            category2: e.target.value,
+        })
 
-    // }
+    }
 
     filterReset = () => {
         console.log('filter reset function has run');
@@ -56,7 +66,7 @@ class Filter extends Component {
         return(
             <div className="filter">
                 
-                <select onChange = {this.HandleFilterSelection} name="race" id="race">
+                <select onChange = {this.HandleFilterSelectionRace} name="race" id="race">
                 
                     {categories.race.map((raceOfAuthor, i) => {
                         return(
@@ -67,7 +77,7 @@ class Filter extends Component {
                 </select>
 
 
-                <select onChange = {this.HandleFilterSelection}  name="gender" id="gender">
+                <select onChange = {this.HandleFilterSelectionGender}  name="gender" id="gender">
                 
                     {categories.gender.map((genderOfAuthor, i) => {
                         
@@ -79,7 +89,7 @@ class Filter extends Component {
                 </select>
 
                 <button onClick={(e) => {
-                    this.props.getFilteredBooksProps(e, this.state.category1, this.state.select);
+                    this.props.getFilteredBooksProps(e, this.state.category1, this.state.category2, this.state.select1, this.state.select2);
                     this.filterReset();
                 }
                 }type ="submit">Filter</button>
