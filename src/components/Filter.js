@@ -13,15 +13,6 @@ class Filter extends Component {
         }
     }
 
-    // HandleFilterSelection = (e) => {
-    //     console.log('select:', e.target.name);
-    //     console.log('category:', e.target.value);
-    //     this.setState({
-    //         select: e.target.name,
-    //         category1: e.target.value,
-    //     })
-    // }
-
     // //This function grabs the user's input when they select a option before submit. 
     HandleFilterSelectionRace = (e) =>{
         console.log('handle filter race function has run');
@@ -58,6 +49,13 @@ class Filter extends Component {
         //This sets the select to the first option in the select
         raceValues.selectedIndex = 0;
         genderValues.selectedIndex = 0;
+
+        this.setState({
+            select1: "",
+            select2: "",
+            category1: "",
+            category2: "",
+        })
 
     }
 
