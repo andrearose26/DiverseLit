@@ -11,6 +11,8 @@ class BookPage extends Component {
         this.state = {
           isbn: "",
           jsonAPI: "https://biblioshare.ca/bncservices/JSON.ashx?",
+          imageAPI:
+            "https://www.biblioshare.org/BNCServices/BNCServices.asmx/Images?",
           title: '',
           contributor: '',
           publisher: '',
@@ -22,6 +24,25 @@ class BookPage extends Component {
           showBookLoadingScreen: false,
           showBookInfo: false,
         };
+    }
+
+    getBookCoverAPI = (isbn) => {
+      return axios({
+        method: "GET",
+        url: this.state.imageAPI,
+        responseType: "json",
+        params: {
+          Token: "jg9ngajqfe6vfu3d",
+          EAN: isbn,
+          SAN: "",
+          thumbnail: false
+        }
+      }).then((coverInfo) => {
+
+          this.setState({
+            cover: coverInfo.request.responseURL
+          })
+      })
     }
 
     getBookDetailsAPI = (isbn) => {
@@ -38,26 +59,31 @@ class BookPage extends Component {
                 EAN: isbn,
             }
         }).then((bookInfo) =>{
+
+            let currentTitle, currentContributor, currentPublisher, currentCover, currentDescription, currentPages;
+
             let bookData = bookInfo.request.response.Product;
-            console.log(bookData);
 
             //Grabbing all needed data and storing in variables
-            let currentTitle = bookData.Title.TitleText;
-            let currentContributor =
-                bookData.Contributor.PersonName;
-            let currentPublisher =
-                bookData.Publisher.PublisherName;
 
-            //replicate what is done in getAllBooks then showAllBooks in an if statement
-            //if book.MediaFile.MediaFileLink is undefined, then do an axios api call to the BookNet Image API, will likely have to do that for all data points
+            if (bookData.Title.TitleText === undefined) {
+              currentTitle = bookData.Title[0].TitleText;
+            } else {
+              currentTitle = bookData.Title.TitleText;
+            }
+          
+            currentContributor = bookData.Contributor.PersonName;
+            currentPublisher = bookData.Publisher.PublisherName;
 
-            // let currentCover = () => {
-            //   this.props.getAllBooks(isbn);
-            // }
-            let currentCover = bookData.MediaFile.MediaFileLink;
-            console.log(currentCover);
-            let currentDescription = bookData.OtherText[0].Text;
-            let currentPages = bookData.NumberOfPages
+            //if link for cover is not in book metadata, then use the Biblioshare Image API to get an image
+            if (bookData.MediaFile === undefined) {
+              this.getBookCoverAPI(isbn)
+            } else {
+              currentCover = bookData.MediaFile.MediaFileLink;
+            }
+            
+            currentDescription = bookData.OtherText[0].Text;
+            currentPages = bookData.NumberOfPages
             
             //Replacing escaped HTML to unescaped using REGEX
             let cleanTitle = currentTitle.replace(/&lt;/g, "<").replace(/&gt;/g, ">").replace(/&amp;/g, "&");
@@ -101,7 +127,10 @@ class BookPage extends Component {
         this.setState({
             isbn: currentIsbn
         }, () => this.getBookDetailsAPI(this.state.isbn))
-        
+
+        setTimeout(() => {
+          this.getBookCoverAPI(this.state.isbn)
+        }, 200)
     }
     
     render(){

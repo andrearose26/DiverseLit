@@ -109,7 +109,7 @@ class App extends Component {
     }
 
     //sets state with updated all book info
-    this.setState((prevState)=> {
+    this.setState(()=> {
       return {
         allIsbns: newISBNs,
         allTitles: newTitles,
