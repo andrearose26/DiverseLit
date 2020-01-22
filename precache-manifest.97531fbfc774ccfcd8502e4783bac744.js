@@ -1,19 +1,19 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "afc63eb4d841391683cf2757bebf4fab",
+    "revision": "2c41575aa36e104bf1be51f840bd3ca8",
     "url": "/DiverseLit/index.html"
   },
   {
-    "revision": "8e611c0995abf175d8b7",
+    "revision": "73dd904da811ad53345a",
     "url": "/DiverseLit/static/css/main.03d669c1.chunk.css"
   },
   {
-    "revision": "b2a20c0ee8ddf3bccd13",
-    "url": "/DiverseLit/static/js/2.ec4a94c7.chunk.js"
+    "revision": "8f54b20c426c522b5ebc",
+    "url": "/DiverseLit/static/js/2.8c4a06e2.chunk.js"
   },
   {
-    "revision": "8e611c0995abf175d8b7",
-    "url": "/DiverseLit/static/js/main.11dae6e2.chunk.js"
+    "revision": "73dd904da811ad53345a",
+    "url": "/DiverseLit/static/js/main.774f3017.chunk.js"
   },
   {
     "revision": "7992c8d2af4ca8cb8022",

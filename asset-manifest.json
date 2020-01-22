@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/DiverseLit/static/css/main.03d669c1.chunk.css",
-    "main.js": "/DiverseLit/static/js/main.11dae6e2.chunk.js",
-    "main.js.map": "/DiverseLit/static/js/main.11dae6e2.chunk.js.map",
+    "main.js": "/DiverseLit/static/js/main.774f3017.chunk.js",
+    "main.js.map": "/DiverseLit/static/js/main.774f3017.chunk.js.map",
     "runtime-main.js": "/DiverseLit/static/js/runtime-main.f75577d5.js",
     "runtime-main.js.map": "/DiverseLit/static/js/runtime-main.f75577d5.js.map",
-    "static/js/2.ec4a94c7.chunk.js": "/DiverseLit/static/js/2.ec4a94c7.chunk.js",
-    "static/js/2.ec4a94c7.chunk.js.map": "/DiverseLit/static/js/2.ec4a94c7.chunk.js.map",
+    "static/js/2.8c4a06e2.chunk.js": "/DiverseLit/static/js/2.8c4a06e2.chunk.js",
+    "static/js/2.8c4a06e2.chunk.js.map": "/DiverseLit/static/js/2.8c4a06e2.chunk.js.map",
     "index.html": "/DiverseLit/index.html",
-    "precache-manifest.3bbc7f2553c11d742febce8615f1ae45.js": "/DiverseLit/precache-manifest.3bbc7f2553c11d742febce8615f1ae45.js",
+    "precache-manifest.97531fbfc774ccfcd8502e4783bac744.js": "/DiverseLit/precache-manifest.97531fbfc774ccfcd8502e4783bac744.js",
     "service-worker.js": "/DiverseLit/service-worker.js",
     "static/css/main.03d669c1.chunk.css.map": "/DiverseLit/static/css/main.03d669c1.chunk.css.map",
     "static/media/blogThumbnail1.jpg": "/DiverseLit/static/media/blogThumbnail1.4556ab06.jpg",
@@ -18,8 +18,8 @@
   },
   "entrypoints": [
     "static/js/runtime-main.f75577d5.js",
-    "static/js/2.ec4a94c7.chunk.js",
+    "static/js/2.8c4a06e2.chunk.js",
     "static/css/main.03d669c1.chunk.css",
-    "static/js/main.11dae6e2.chunk.js"
+    "static/js/main.774f3017.chunk.js"
   ]
 }
