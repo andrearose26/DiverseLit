@@ -15,9 +15,6 @@ class Filter extends Component {
 
     // //This function grabs the user's input when they select a option before submit. 
     HandleFilterSelectionRace = (e) =>{
-        console.log('handle filter race function has run');
-        console.log('select:', e.target.name);
-        console.log('category:', e.target.value);
         
         this.setState({
             select1: e.target.name,
@@ -28,10 +25,6 @@ class Filter extends Component {
     
     // //This function grabs the user's input when they select a option before submit. 
     HandleFilterSelectionGender = (e) =>{
-        
-        console.log('handle filter gender function has run');
-        console.log('select:', e.target.name);
-        console.log('category:', e.target.value);
 
         this.setState({
             select2: e.target.name,
@@ -41,7 +34,6 @@ class Filter extends Component {
     }
 
     filterReset = () => {
-        console.log('filter reset function has run');
         //This selects each select for each category, where the options are nested in an array
         const raceValues = document.getElementById("race").options;
         const genderValues = document.getElementById("gender").options;

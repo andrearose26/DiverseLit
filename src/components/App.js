@@ -59,7 +59,6 @@ class App extends Component {
 
   getAllBooks = () => {
 
-    console.log('get all books function has run');
     //I am grabbing all of the ISBNs from the bookInfo object through a for loop for all the categories, then the options within. Ex - loop through each race, then each isbn is pushed through an array in this.state.
 
     let isbn, title, author;
@@ -208,7 +207,7 @@ class App extends Component {
       }, 100)
 
     } else if (categoryChoice1 !== "noSelect" && (categoryChoice2 === "noSelect" || categoryChoice2 === "")){
-      console.log('both have something selected');
+
       //Grabs ISBNs for race category and pushes it into an array
       for (let i = 0; i < bookInfo[selectChoice1][categoryChoice1].length; i++) {
         selectedISBNs.push(bookInfo[selectChoice1][categoryChoice1][i].isbn);
