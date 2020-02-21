@@ -1,6 +1,19 @@
-## Diverse Lit
+# Diverse Lit
 
-Diverse Lit is a project that makes books by underrepresented authors easy to find.
+Diverse Lit is a project that makes books by underrepresented authors easy to find. The website allows the user to choose from  various filters to find books by diverse authors. 
+
+You can find the site [here](https://andrearose26.github.io/DiverseLit/).
+
+## Built With
+
+* React
+* React Router
+* Biblioshare Image API
+* Biblioshare JSON API
+* SASS
+* Visual Studio Code
+
+## Description
 
 This project was created using React and two APIs by Biblioshare. (Thanks Booknet Canada!) The Biblioshare Image API is used to pull in all of the initial cover images, and an internal JS object is used to store categories, book ISBNs, author name and titles.
 
