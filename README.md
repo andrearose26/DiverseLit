@@ -1,8 +1,6 @@
 ## Diverse Lit
 
-Diverse Lit is a pilot project created by Andrea Lacson during the Web Development Bootcamp at Juno College of Technology.
-
-By default, Diverse Lit is a tool that makes books by diverse authors easy to find. It is a hope that one day, most underrepresented readers will be able to find a story like theirs through this website.
+Diverse Lit is a project that makes books by underrepresented authors easy to find.
 
 This project was created using React and two APIs by Biblioshare. (Thanks Booknet Canada!) The Biblioshare Image API is used to pull in all of the initial cover images, and an internal JS object is used to store categories, book ISBNs, author name and titles.
 
