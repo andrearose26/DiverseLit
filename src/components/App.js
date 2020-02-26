@@ -68,6 +68,9 @@ class App extends Component {
     let newISBNs = [];
     let newTitles = [];
     let newAuthors = [];
+    let noDupISBNs = [];
+    let noDupTitles = [];
+    let noDupAuthors = [];
 
     const raceCategories = Object.keys(bookInfo.race); //creates an array of each of the categories in race
     const genderCategories = Object.keys(bookInfo.gender); //creates an array of each of the categories in race
@@ -107,15 +110,19 @@ class App extends Component {
         newISBNs.push(isbn);
         newTitles.push(title);
         newAuthors.push(author);
+
+        noDupISBNs = [...new Set(newISBNs.map(title => title))];
+        noDupTitles = [...new Set(newTitles.map(title => title))];
+        noDupAuthors = [...new Set(newAuthors.map(title => title))];
+ 
       }
     }
-
     //sets state with updated all book info
     this.setState(()=> {
       return {
-        allIsbns: newISBNs,
-        allTitles: newTitles,
-        allAuthors: newAuthors,
+        allIsbns: noDupISBNs,
+        allTitles: noDupTitles,
+        allAuthors: noDupAuthors,
       }
     })
   }
