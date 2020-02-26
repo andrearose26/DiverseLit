@@ -41,13 +41,21 @@ const bookInfo = {
       {
         isbn: 9781555977856,
         title: "Don't Call Us Dead: Poems",
-        author: "Danez Smith"
+        author: "Danez Smith",
+        otherCategories: ["nonBinary", "queer"]
       },
       {
         isbn: 9781617755880,
         title: "An Unkindness of Ghosts",
-        author: "Rivers Solomon"
-      }
+        author: "Rivers Solomon",
+        otherCategories: ["nonBinary", "lesbian", "queer"]
+      },
+      {
+        isbn: 9780062662835,
+        title: "With the Fire On High",
+        author: "Elizabeth Acevedo",
+        otherCategories: ["Latinx", "Black"]
+      },
     ],
     indigenous: [
       {
@@ -126,13 +134,14 @@ const bookInfo = {
       {
         isbn: 9780525511298,
         title: "Sabrina & Corina",
-        author: "Kali Fajardo-Anstine"
+        author: "Kali Fajardo-Anstine",
+        otherCategories: ["female"]
       },
       {
         isbn: 9780062662835,
         title: "With the Fire On High",
         author: "Elizabeth Acevedo",
-        otherCategories: ["female"]
+        otherCategories: ["female", "black"]
       },
       {
         isbn: 9780771094507,
@@ -148,52 +157,62 @@ const bookInfo = {
       {
         isbn: 9780385686150,
         title: "Homegoing",
-        author: "Yaa Gyasi"
+        author: "Yaa Gyasi",
+        otherCategories: ["black"]
       },
       {
         isbn: 9780399587689,
         title: "The Proposal",
-        author: "Jasmine Guillory"
+        author: "Jasmine Guillory",
+        otherCategories: ["black"]
       },
       {
         isbn: 9781501168000,
         title: "Heads of The Colored People",
-        author: "Nafissa Thompson-Spires"
+        author: "Nafissa Thompson-Spires",
+        otherCategories: ["female"]
       },
       {
         isbn: 9781443459587,
         title: "Washington Black",
-        author: "Esi Edugyan"
+        author: "Esi Edugyan",
+        otherCategories: ["black"]
       },
       {
         isbn: 9780385691147,
         title: "Heart Berries",
-        author: "Terese Marie Mailhot"
+        author: "Terese Marie Mailhot",
+        otherCategories: ["indigenous"]
       },
       {
         isbn: 9781443451352,
         title: "Birdie",
-        author: "Tracey Lindberg"
+        author: "Tracey Lindberg",
+        otherCategories: ["indigenous"]
       },
       {
         isbn: 9780525434313,
         title: "Fruit of the Drunken Tree",
-        author: "Ingrid Rojas Contreras"
+        author: "Ingrid Rojas Contreras",
+        otherCategories: ["Latinx"]
       },
       {
         isbn: 9780525511298,
         title: "Sabrina & Corina",
-        author: "Kali Fajardo-Anstine"
+        author: "Kali Fajardo-Anstine",
+        otherCategories: ["Latinx"]
       },
       {
         isbn: 9780062662835,
         title: "With the Fire On High",
-        author: "Elizabeth Acevedo"
+        author: "Elizabeth Acevedo",
+        otherCategories: ["Latinx", "Black"]
       },
       {
         isbn: 9780771094507,
         title: "In The Dream House: A Memoir",
-        author: "Carmen Maria Machado"
+        author: "Carmen Maria Machado",
+        otherCategories: ["Latinx"]
       },
       {
         isbn: 9780385692380,
@@ -230,12 +249,14 @@ const bookInfo = {
       {
         isbn: 9781555977856,
         title: "Don't Call Us Dead: Poems",
-        author: "Danez Smith"
+        author: "Danez Smith",
+        otherCategories: ["black"]
       },
       {
         isbn: 9781617755880,
         title: "An Unkindness of Ghosts",
-        author: "Rivers Solomon"
+        author: "Rivers Solomon",
+        otherCategories: ["lesbian", "black"]
       }
     ],
     trans: [
