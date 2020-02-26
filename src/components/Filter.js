@@ -13,7 +13,7 @@ class Filter extends Component {
         }
     }
 
-    // //This function grabs the user's input when they select a option before submit. 
+    //This function grabs the user's input when they select a option before submit. 
     HandleFilterSelectionRace = (e) =>{
         
         this.setState({
@@ -23,7 +23,7 @@ class Filter extends Component {
         
     }
     
-    // //This function grabs the user's input when they select a option before submit. 
+    //This function grabs the user's input when they select a option before submit. 
     HandleFilterSelectionGender = (e) =>{
 
         this.setState({

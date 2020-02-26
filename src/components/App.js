@@ -249,18 +249,47 @@ class App extends Component {
     } else if ((categoryChoice1 !== "noSelect" || categoryChoice1 !== "") && (categoryChoice2 !== "noSelect" || categoryChoice2 !== "")) {
 
       //if both are selected
-      //Grabs ISBNs for race category and pushes it into an array
+        
       for (let i = 0; i < bookInfo[selectChoice1][categoryChoice1].length; i++) {
-        selectedISBNs.push(bookInfo[selectChoice1][categoryChoice1][i].isbn);
-        selectedTitles.push(bookInfo[selectChoice1][categoryChoice1][i].title);
-        selectedAuthors.push(bookInfo[selectChoice1][categoryChoice1][i].author);
+
+        //Check if there is another category assigned to each book
+        const otherCategory = bookInfo[selectChoice1][categoryChoice1][i].otherCategories;
+        
+        //If otherCategories exists
+        if (otherCategory !== undefined) {
+
+          //Loop through each other category
+          for (let j = 0; j < otherCategory.length; j++) {
+
+            //And see if it matches with the other selected category
+            if (categoryChoice2 === otherCategory[j]) {
+              
+              console.log('match found');
+              // console.log(otherCategory[j]);
+              // console.log(categoryChoice2);
+              selectedISBNs.push(bookInfo[selectChoice1][categoryChoice1][i].isbn);
+              // selectedISBNs.push(bookInfo[selectChoice1][categoryChoice1][i].isbn);
+              selectedTitles.push(bookInfo[selectChoice1][categoryChoice1][i].title);
+              selectedAuthors.push(bookInfo[selectChoice1][categoryChoice1][i].author);
+            }
+          }
+        }
       }
-      //Grabs ISBNs for gender category and pushes it into an array
-      for (let i = 0; i < bookInfo[selectChoice2][categoryChoice2].length; i++) {
-        selectedISBNs.push(bookInfo[selectChoice2][categoryChoice2][i].isbn);
-        selectedTitles.push(bookInfo[selectChoice2][categoryChoice2][i].title);
-        selectedAuthors.push(bookInfo[selectChoice2][categoryChoice2][i].author);
-      }
+
+
+
+      // //Grabs ISBNs for race category and pushes it into an array
+      // for (let i = 0; i < bookInfo[selectChoice1][categoryChoice1].length; i++) {
+      //   selectedISBNs.push(bookInfo[selectChoice1][categoryChoice1][i].isbn);
+      //   selectedTitles.push(bookInfo[selectChoice1][categoryChoice1][i].title);
+      //   selectedAuthors.push(bookInfo[selectChoice1][categoryChoice1][i].author);
+      // }
+      // //Grabs ISBNs for gender category and pushes it into an array
+      // for (let i = 0; i < bookInfo[selectChoice2][categoryChoice2].length; i++) {
+      //   selectedISBNs.push(bookInfo[selectChoice2][categoryChoice2][i].isbn);
+      //   selectedTitles.push(bookInfo[selectChoice2][categoryChoice2][i].title);
+      //   selectedAuthors.push(bookInfo[selectChoice2][categoryChoice2][i].author);
+      // }
 
       //Sets state to the updated group of ISBNs
       this.setState(() => {
