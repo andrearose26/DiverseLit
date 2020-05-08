@@ -240,6 +240,24 @@ button[type="submit"] {
           box-shadow: 0px 1rem 2rem -1.5rem;
 }
 
+@media (max-width: 500px) {
+  .filter {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  select {
+    margin: 10px;
+  }
+  button[type="submit"] {
+    margin-top: 10px;
+  }
+}
+
 .loadingScreen {
   text-align: center;
   height: 25vh;
@@ -549,17 +567,21 @@ header nav ul {
 }
 
 .aboutPage h2 {
-  font-size: 2.5rem;
+  font-size: 5rem;
   margin-bottom: 1.6rem;
-  text-transform: uppercase;
   font-family: "Nunito Sans", sans-serif;
+  font-weight: 400;
+}
+
+.aboutPage::after {
+  border-bottom: 1px solid orange;
 }
 
 .aboutPage p {
   font-size: 2rem;
   line-height: 3.5rem;
   margin-bottom: 1.6rem;
-  text-align: left;
+  text-align: center;
 }
 
 /* BLOG PAGE*/

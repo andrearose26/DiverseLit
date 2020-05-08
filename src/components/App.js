@@ -336,7 +336,8 @@ class App extends Component {
   render() {
 
     return (
-      <Router basename="/DiverseLit">
+      // <Router basename="/DiverseLit">
+      <Router>
         <Switch>
           <Route
             path="/"

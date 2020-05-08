@@ -16,7 +16,6 @@ const Blog = () => (
 
     <main className="wrapper">
       <h1 className="blogTitle">Blog</h1>
-
       <div className="blogThumbnails">
 
         <div className="blogThumbnail">
